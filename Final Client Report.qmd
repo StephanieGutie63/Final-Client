@@ -44,7 +44,17 @@ testing
 
 ## Deliverable 2
 
-testing
+## Business Problem   
+
+Sino Yoga lacks a structured, data-driven digital growth strategy — limiting visibility, engagement, and revenue.
+
+-   **Visibility**: Low YouTube search presence; content not optimized for discovery
+
+-   **Engagement**: High reach, low interaction and retention
+
+-   **Monetization**: Audience interest not converting to revenue; no clear funnel
+
+-   **Integration**: Platforms operate independently, not as a connected funnel
 
 ## Deliverable 3
 
