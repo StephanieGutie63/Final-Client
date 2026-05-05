@@ -40,11 +40,133 @@ execute:
 
 ### Stakeholder Layout
 
-testing
+#### Stakeholder Q1
 
-## Deliverable 2
+> Can YouTube serve a funnel and meaningful traffic source for brand expansion in the US market?
 
-## Business Problem   
+::: callout
+### KPIs
+
+1.  Website Traffic Volume
+
+2.  Conversion Rate
+
+3.  Engagement Rate
+:::
+
+#### Metric Definition
+
+-   YouTube referral sessions
+
+-   Number of website sessions originating from YouTube traffic
+
+-   Engagement
+
+#### Break Down
+
+-   By video
+
+-   By landing Page
+
+-   By device
+
+-   By content type
+
+#### Data Source
+
+-   YouTube Studio Analytics
+
+#### Assumptions/Notes
+
+-   YouTube as funnel, not last click
+
+-   Success measured through actual conversions
+
+#### STAKEHOLDER Q2
+
+> How can we build a cohesive yoga community that connects viewers across YouTube, our website, and social media platforms?
+
+::: callout
+### KPIs
+
+1.  Engagement (comments, likes, & shares)
+
+2.  Cross Platform Reach
+
+3.  Returning visitor rate
+:::
+
+#### Metric Definition
+
+-   Engagement: action showing viewers interaction
+
+-   Cross Platform Reach: how many people engage with brand's other platforms
+
+-   Returning Visitor Rate: how often viewers come back after their first interaction
+
+#### Break Down
+
+-   Entry points: challanges, blogs, & about page
+
+-   CTA & landing pages
+
+-   Content Categories & user interest
+
+#### Data Source
+
+-   GA4
+
+-   Big Query Export
+
+#### Assumptions/Notes
+
+-   "Community" generated thorough repeat visits, content interaction on platforms
+
+-   Consistent themes, CTAs across channels
+
+#### STAKEHOLDER Q3
+
+> How can we deepen engagement with our YouTube viewers and build enough value and trust for them to choose a paid membership?
+
+::: callout
+### KPIs
+
+1.  Engagement Rate
+
+2.  Lead to conversion
+
+3.  Membership Conversion Rate
+:::
+
+#### Metric Definition
+
+-   Engagement: action showing viewers interaction
+
+-   Lead to Conversion: leads that convert to paid members
+
+-   Membership Conversion Rate: YouTube users who became paying members
+
+#### Break Down
+
+-   Content preferences (short-form, long form)
+
+-   Viewer depth subscriber vs not subscriber
+
+#### Data Source
+
+-   GA4
+
+-   Big Query Export
+
+#### Assumptions/Notes
+
+-   Paid conversion likely to not be first touch
+
+-   Need bridge content ( free classes, challenges, series)
+
+-   Membership value must differ from free content
+
+## Business Problem
 
 Sino Yoga lacks a structured, data-driven digital growth strategy — limiting visibility, engagement, and revenue.
 
