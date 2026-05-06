@@ -526,11 +526,16 @@ The three stakeholder questions roll up into a unified KPI hierarchy organized a
 
 ## Attribution Modeling Approach
 
-To extend beyond descriptive dashboard insights, this analysis applies attribution modeling to evaluate how different marketing channels contribute to user engagement and conversion behavior.
+-   Moves beyond descriptive insights to understand **how channels contribute across the user journey**
 
-Due to the absence of fully implemented conversion tracking (e.g., purchases or memberships) in GA4, this analysis uses **engaged sessions as a proxy for conversion**. Engagement reflects user interaction with the website and serves as a directional indicator of user intent.
+-   Uses **engaged sessions as a proxy for conversion**\
+    *(due to lack of purchase/membership tracking in GA4)*
 
-Additionally, because true user-level multi-touch journey data is not fully available across platforms (e.g., YouTube to website tracking), we construct a simplified path-based dataset to approximate realistic user journeys. This allows us to demonstrate how attribution models distribute credit across touchpoints.
+-   Recognizes that **user journeys are multi-touch**, not single-channel
+
+-   Uses a **simplified path-based dataset** to approximate real user journeys
+
+-   Evaluates **channel contribution across awareness, consideration, and engagement**
 
 ## Attribution Models Used
 
