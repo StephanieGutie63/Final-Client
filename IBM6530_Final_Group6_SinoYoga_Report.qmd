@@ -830,6 +830,6 @@ This attribution analysis in theory will helps Sino Yoga understand which channe
 
 # Appendix
 
-Link to gitpages:
+Link to gitpages: <https://stephaniegutie63.github.io/Final-Client/>
 
-Link to github repo:
+Link to github repo: <https://github.com/StephanieGutie63/Final-Client>
