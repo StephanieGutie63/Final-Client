@@ -53,7 +53,7 @@ Sino Yoga's primary growth objectives shape the analytical scope of this engagem
 
 The analysis is structured around three primary stakeholder questions, each translated into measurable KPIs and supported by data from GA4 and BigQuery.
 
-### Q1: Can YouTube serve a funnel and meaningful traffic source for brand expansion in the US market?
+### Q1: Can YouTube serve as a funnel and meaningful traffic source for brand expansion in the US market?
 
 | KPI | Definition |
 |---|---|
