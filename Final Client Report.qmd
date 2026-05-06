@@ -42,7 +42,7 @@ execute:
 
 #### Stakeholder Q1
 
-> Can YouTube serve a funnel and meaningful traffic source for brand expansion in the US market?
+> Can YouTube serve as a funnel and meaningful traffic source for brand expansion in the US market?
 
 ::: callout
 ### KPIs
