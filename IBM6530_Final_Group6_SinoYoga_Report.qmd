@@ -10,7 +10,7 @@ date: "May 6, 2026"
 format:
   html:
     toc: true
-    toc-depth: 3
+    toc-depth: 6
     toc-location: left
     theme: cosmo
     code-fold: true
@@ -20,22 +20,6 @@ execute:
   warning: false
   message: false
 ---
-
-# Executive Summary
-
-::: callout-note
-```{=html}
-<!--delete
--->
-```
-
-## TO ADD
-
--   1 paragraph: client overview, business question, data foundation
--   Headline finding (1–2 sentences)
--   Top 2–3 recommendations (1 sentence each)
--   Keep to ½ page max
-:::
 
 # 1. Business Context & Measurement Plan
 
@@ -58,9 +42,9 @@ Sino Yoga's primary growth objectives shape the analytical scope of this engagem
 
 #embed revealjs or link
 
-# 2.Descriptive Insights 
+# 2.Descriptive Insights
 
-## Deliverable 1 
+## Deliverable 1
 
 ### Data Source
 
@@ -76,21 +60,187 @@ This analytics mart supports Sino Yoga’s digital marketing dashboard by standa
 
 This mart supports questions such as:
 
-1.   How much website traffic is Sino Yoga receiving?
+1.  How much website traffic is Sino Yoga receiving?
 
-2.   Which channels drive the most sessions?
+2.  Which channels drive the most sessions?
 
-3.   Are users engaging with the website?
+3.  Are users engaging with the website?
 
-4.   Which landing pages perform best?
+4.  Which landing pages perform best?
 
-5.   Which devices and locations represent the strongest audience segments?
+5.  Which devices and locations represent the strongest audience segments?
 
 ##### **Chosen Grain**
 
 Session-level grain
 
-#sql query
+### Big Query
+
+#### **View 1: `mart_ga4_session_summary_v1`**
+
+```` sql
+```sql
+
+CREATE OR REPLACE VIEW `sino-yoga-494202.analytics_527584579.mart_ga4_session_summary_v1` AS
+
+WITH base_events AS (
+  SELECT
+    PARSE_DATE('%Y%m%d', event_date) AS event_date,
+    user_pseudo_id,
+
+    (
+      SELECT value.int_value
+      FROM UNNEST(event_params)
+      WHERE key = 'ga_session_id'
+    ) AS ga_session_id,
+
+    event_name,
+
+    (
+      SELECT value.string_value
+      FROM UNNEST(event_params)
+      WHERE key = 'page_location'
+    ) AS page_location,
+
+    (
+      SELECT value.int_value
+      FROM UNNEST(event_params)
+      WHERE key = 'engagement_time_msec'
+    ) AS engagement_time_msec,
+
+    traffic_source.source AS source,
+    traffic_source.medium AS medium,
+    traffic_source.name AS campaign,
+
+    device.category AS device_category,
+    geo.country AS country,
+    geo.region AS region
+
+  FROM `sino-yoga-494202.analytics_527584579.events_*`
+)
+
+SELECT
+  event_date,
+  user_pseudo_id,
+  CONCAT(user_pseudo_id, '-', CAST(ga_session_id AS STRING)) AS session_key,
+
+  COALESCE(source, '(direct)') AS source,
+  COALESCE(medium, '(none)') AS medium,
+  COALESCE(campaign, '(not set)') AS campaign,
+
+  ANY_VALUE(page_location) AS landing_page,
+  ANY_VALUE(device_category) AS device_category,
+  ANY_VALUE(country) AS country,
+  ANY_VALUE(region) AS region,
+
+  COUNTIF(event_name = 'page_view') AS page_views,
+  SUM(COALESCE(engagement_time_msec, 0)) / 1000 AS engagement_seconds,
+
+  MAX(CASE 
+    WHEN event_name IN ('sign_up', 'form_submit', 'purchase') THEN 1 
+    ELSE 0 
+  END) AS converted,
+
+  MAX(CASE 
+    WHEN COALESCE(engagement_time_msec, 0) > 0 THEN 1 
+    ELSE 0 
+  END) AS engaged_session
+
+FROM base_events
+WHERE ga_session_id IS NOT NULL
+GROUP BY
+  event_date,
+  user_pseudo_id,
+  session_key,
+  source,
+  medium,
+  campaign;
+
+
+```
+````
+
+![](images/clipboard-813223436.png)
+
+**Output:**
+
+| Field              | Definition                              |
+|--------------------|-----------------------------------------|
+| event_date         | Date of the session                     |
+| user_pseudo_id     | Anonymous GA4 user ID                   |
+| session_key        | Unique session identifier               |
+| source             | Traffic source                          |
+| medium             | Traffic medium                          |
+| campaign           | Campaign name                           |
+| landing_page       | First or representative page in session |
+| device_category    | Device type                             |
+| country            | User country                            |
+| region             | User region/state                       |
+| page_views         | Number of page views in session         |
+| engagement_seconds | Total engagement time in seconds        |
+| converted          | Whether session had a conversion        |
+| engaged_session    | Whether session had engagement          |
+
+#### **View 2: `mart_ga4_daily_channel_kpis_v1`**
+
+```` sql
+```sql
+
+CREATE OR REPLACE VIEW `sino-yoga-494202.analytics_527584579.mart_ga4_daily_channel_kpis_v1` AS
+
+-- Daily channel-level KPI table for Looker Studio
+-- Aggregates session-level mart into reporting-ready KPIs
+
+SELECT
+  event_date,
+  source,
+  medium,
+  campaign,
+  device_category,
+  country,
+
+  COUNT(DISTINCT session_key) AS sessions,
+  COUNT(DISTINCT user_pseudo_id) AS users,
+  SUM(page_views) AS page_views,
+  SUM(engagement_seconds) AS engagement_seconds,
+  SUM(converted) AS conversions,
+  SUM(engaged_session) AS engaged_sessions,
+
+  SAFE_DIVIDE(SUM(engaged_session), COUNT(DISTINCT session_key)) AS engagement_rate,
+  SAFE_DIVIDE(SUM(converted), COUNT(DISTINCT session_key)) AS conversion_rate,
+  SAFE_DIVIDE(SUM(engagement_seconds), COUNT(DISTINCT session_key)) AS avg_engagement_seconds_per_session
+
+FROM `sino-yoga-494202.analytics_527584579.mart_ga4_session_summary_v1`
+
+GROUP BY
+  event_date,
+  source,
+  medium,
+  campaign,
+  device_category,
+  country;
+```
+````
+
+| Field                              | Definition                    |
+|------------------------------------|-------------------------------|
+| event_date                         | Reporting date                |
+| source                             | Traffic source                |
+| medium                             | Traffic medium                |
+| campaign                           | Campaign name                 |
+| device_category                    | Device type                   |
+| country                            | User country                  |
+| sessions                           | Total sessions                |
+| users                              | Total users                   |
+| page_views                         | Total page views              |
+| engagement_seconds                 | Total engagement time         |
+| conversions                        | Total conversions             |
+| engaged_sessions                   | Total engaged sessions        |
+| engagement_rate                    | Engaged sessions / sessions   |
+| conversion_rate                    | Conversions / sessions        |
+| avg_engagement_seconds_per_session | Engagement seconds / sessions |
+
+![](images/clipboard-2888977705.png)
 
 ### Data Studio Dashboard
 
@@ -102,24 +252,24 @@ Session-level grain
 
 #### Core KPIs include:
 
--    Sessions
+-   Sessions
 
--    Users
+-   Users
 
--    Page views
+-   Page views
 
--    Engagement rate
+-   Engagement rate
 
--    Average engagement time
+-   Average engagement time
 
--    Conversions
+-   Conversions
 
--    Conversion rate
+-   Conversion rate
 
 ### Definitions & Caveats
 
 | Field Name | Definition | Caveats |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | event_date | Date when the session or event occurred | Based on GA4 event date |
 | user_pseudo_id | Anonymous GA4 user identifier | Not the same as a known customer ID |
 | session_key | Combined user and session ID | Depends on GA4 session ID being present |
@@ -140,57 +290,130 @@ Session-level grain
 | conversion_rate | Share of sessions that converted | Formula: conversions / sessions |
 | avg_engagement_seconds_per_session | Average engagement time per session | Formula: engagement_seconds / sessions |
 
-### Stakeholder Questions
+### STAKEHOLDER Q1
 
-The analysis is structured around three primary stakeholder questions, each translated into measurable KPIs and supported by data from GA4 and BigQuery.
+> How do we increase visibility on the YouTube Channel and attract high-intent users?
 
-#### Q1
+```{r}
+#| echo: false
+library(tidyverse)
+library(gt)
 
-> Can YouTube serve as a funnel and meaningful traffic source for brand expansion in the US market?
+kpi_table <- tibble(
+  KPIs = c("Impressions", "Click-Through Rate (CTR)"),
+  `Metric Definition` = c("Number of times a video thumbnail is shown to users on YouTube, measures how often content is seen reach and visibility of videos",
+    "CTR = (Clicks / Impressions x 100) Measuring how effectively titles/thumbnails drive clicks on videos"
+  ),
+  `Break Down` = c("Traffic Source (Search, Browse, Suggested", "Video Title /Keyword & UTM"),
+  `Data Source` = c("YouTube Studio Analytics", "YouTube, GA4 & GTM"),
+  Assumptions = c(
+    "Search Traffic= high intent users", "CTR reflects content packaging effectiveness"
+  )
+)
 
-| KPI | Definition |
-|------------------------------------|------------------------------------|
-| Website Traffic Volume | YouTube referral sessions |
-| Conversion Rate | Number of website sessions originating from YouTube traffic |
-| Engagement Rate | Engagement |
+kpi_table |>
+  gt() |>
+  tab_header(
+    title = "Stakeholder Layout",
+    subtitle = "Q1"
+  ) |>
+  cols_label(
+    KPIs = "KPI",
+    `Metric Definition` = "Metric Definition",
+    `Break Down` = "Breakdown",
+    `Data Source` = "Data Source",
+    Assumptions = "Assumptions"
+  ) |>
+  tab_options(
+    table.font.size = 13,
+    heading.title.font.size = 16,
+    heading.subtitle.font.size = 13,
+    table.width = pct(100)
+  )
+```
 
-**Data sources:** YouTube Analytics (video views, link clicks), GA4 (traffic acquisition, engagement metrics, funnel and path explorations).
+### STAKEHOLDER Q2
 
-**Diagnostic cuts:** by video, by landing page, by device, by content type.
+> How can we build a cohesive yoga community that connects viewers across YouTube, our website to drive engagement and long-term growth?
 
-**Assumption:** YouTube functions as a top-of-funnel discovery channel, not as the last-click attribution source. Success is measured through actual conversions further down the funnel.
+```{r}
+#| echo: false
+library(tidyverse)
+library(gt)
 
-#### Q2 
+kpi_table <- tibble(
+  KPIs = c("Cross Platform Traffic (YouTube -> Website)", "Engagement Rate", "Returning Users"),
+  `Metric Definition` = c("Number of website sessions from YouTube", " Percentage of users who interact with content (likes, comments, & shares E= (total interactions/total views) x100","Percentage of users who return to the website or channel after first visit Returning Users Rate =(Returning users / Total Users) x100"
+  ),
+  `Break Down` = c("Traffic Source & UTM Parameters", "Device & Content Type","Geography" ),
+  `Data Source` = c("YouTube & GTM", "GA4 & YouTube", "GA4 & YouTube"),
+  Assumptions = c(
+    "YouTube users represent core audience", "Engagement reflect active viewers", "Returning users indicate stronger community engagement"
+  )
+)
 
-> How can we build a cohesive yoga community that connects viewers across YouTube, our website, and social media platforms?
+kpi_table |>
+  gt() |>
+  tab_header(
+    title = "Stakeholder Layout",
+    subtitle = "Q2"
+  ) |>
+  cols_label(
+    KPIs = "KPI",
+    `Metric Definition` = "Metric Definition",
+    `Break Down` = "Breakdown",
+    `Data Source` = "Data Source",
+    Assumptions = "Assumptions"
+  ) |>
+  tab_options(
+    table.font.size = 13,
+    heading.title.font.size = 16,
+    heading.subtitle.font.size = 13,
+    table.width = pct(100)
+  )
+```
 
-| KPI | Definition |
-|------------------------------------|------------------------------------|
-| Engagement (comments, likes, & shares) | action showing viewers interaction including comments, likes, and shares |
-| Cross Platform Reach | how many people engage with brand's other platforms |
-| Returning visitor rate | how often viewers come back after their first interaction |
-
-**Data sources:** GA4 UI, BigQuery export.
-
-**Diagnostic cuts:** entry points (challenges, blogs, About page), CTAs and landing pages, content categories and user interest.
-
-**Assumption:** Community is built through repeat visits and content interaction across platforms, supported by consistent themes and CTAs.
-
-#### Q3
+### STAKEHOLDER Q3
 
 > How can we deepen engagement with our YouTube viewers and build enough value and trust for them to choose a paid membership?
 
-| KPI                        | Definition                              |
-|----------------------------|-----------------------------------------|
-| Engagement Rate            | action showing viewers interaction      |
-| Lead-to-conversion         | leads that convert to paid members      |
-| Membership Conversion Rate | YouTube users who became paying members |
+```{r}
+#| echo: false
+library(tidyverse)
+library(gt)
 
-**Data sources:** GA4 UI, BigQuery.
+kpi_table <- tibble(
+  KPIs = c("Watch Time", "Average View Duration", "Engagement Rate", "Conversion Rate"),
+  `Metric Definition` = c("Total time viewers watch videos(hrs) indicates depth of engagement & content value", "Average time viewer spends watching video (AVD= Watch Time / Views)","Percentage of users who interact with content (likes, comments, & shares E= (total interactions/total views) x100", "Percentage of engaged users who purchase a membership ((# memberships / users) x 100"
+  ),
+  `Break Down` = c("video type & content type", "video length & audience segment", "video topic &  CTA","Traffic Source & User Journey Stage"),
+  `Data Source` = c("YouTube Studio Analytics", "YouTube Studio Analytics", "YouTube Studio Analytics", "GA4 & GTM"),
+  Assumptions = c(
+    "Higher watch time indicate strong value & trust","engagement reflects active users with channel", "users who engage & return frequently are more likely to convert to paying members", "conversion tracking requires integration of mulitple platforms"
+  )
+)
 
-**Diagnostic cuts:** content preferences (short-form vs. long-form), offer type (free, discount intro, monthly subscription), viewer depth (subscribers vs. non-subscribers).
 
-**Assumptions:** Paid conversion is unlikely to be first-touch, bridge content (free classes, challenges, series) is needed, and membership value must differ meaningfully from free content.
+kpi_table |>
+  gt() |>
+  tab_header(
+    title = "Stakeholder Layout",
+    subtitle = "Q3"
+  ) |>
+  cols_label(
+    KPIs = "KPI",
+    `Metric Definition` = "Metric Definition",
+    `Break Down` = "Breakdown",
+    `Data Source` = "Data Source",
+    Assumptions = "Assumptions"
+  ) |>
+  tab_options(
+    table.font.size = 13,
+    heading.title.font.size = 16,
+    heading.subtitle.font.size = 13,
+    table.width = pct(100)
+  )
+```
 
 #### KPI Tree
 
