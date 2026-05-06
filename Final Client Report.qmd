@@ -42,129 +42,128 @@ execute:
 
 #### Stakeholder Q1
 
-> Can YouTube serve as a funnel and meaningful traffic source for brand expansion in the US market?
+> How do we increase visibility and attract high-intent users?
 
-::: callout
-### KPIs
+```{r}
+#| echo: false
+library(tidyverse)
+library(gt)
 
-1.  Website Traffic Volume
+kpi_table <- tibble(
+  KPIs = c("Impressions", "Click-Through Rate (CTR)"),
+  `Metric Definition` = c("Impressions: number of times a video thumbnail is shown to users on YouTube, measures how often content is seen reach and visibility of videos",
+    "CTR = (Clicks / Impressions x 100) Measuring how effectively titles/thumbnails drive clicks on videos"
+  ),
+  `Break Down` = c("Traffic Source (Search, Browse, Suggested", "Video Title /Keyword & UTM"),
+  `Data Source` = c("YouTube Studio Analytics", "GA4 & GTM"),
+  Assumptions = c(
+    "Search Traffic= high intent users", "CTR reflects content packaging effectiveness"
+  )
+)
 
-2.  Conversion Rate
-
-3.  Engagement Rate
-:::
-
-#### Metric Definition
-
--   YouTube referral sessions
-
--   Number of website sessions originating from YouTube traffic
-
--   Engagement
-
-#### Break Down
-
--   By video
-
--   By landing Page
-
--   By device
-
--   By content type
-
-#### Data Source
-
--   YouTube Studio Analytics
-
-#### Assumptions/Notes
-
--   YouTube as funnel, not last click
-
--   Success measured through actual conversions
+kpi_table |>
+  gt() |>
+  tab_header(
+    title = "Stakeholder Layout",
+    subtitle = "Q1"
+  ) |>
+  cols_label(
+    KPIs = "KPI",
+    `Metric Definition` = "Metric Definition",
+    `Break Down` = "Breakdown",
+    `Data Source` = "Data Source",
+    Assumptions = "Assumptions"
+  ) |>
+  tab_options(
+    table.font.size = 13,
+    heading.title.font.size = 16,
+    heading.subtitle.font.size = 13,
+    table.width = pct(100)
+  )
+```
 
 #### STAKEHOLDER Q2
 
-> How can we build a cohesive yoga community that connects viewers across YouTube, our website, and social media platforms?
+> How can we build a cohesive yoga community that connects viewers across YouTube, our website to drive engagement and long-term growth?
 
-::: callout
-### KPIs
+```{r}
+#| echo: false
+library(tidyverse)
+library(gt)
 
-1.  Engagement (comments, likes, & shares)
+kpi_table <- tibble(
+  KPIs = c("Cross Platform Traffic (YouTube -> Website)", "Engagement Rate", "Returning Users"),
+  `Metric Definition` = c("Number of website sessions from YouTube", " Percentage of users who interact with content (likes, comments, & shares E= (total interactions/total views) x100","Percentage of users who return to the website or channel after first visit Returning Users Rate =(Returning users / Total Users) x100"
+  ),
+  `Break Down` = c("Traffic Source & UTM Parameters", "Device & Content Type","Geography" ),
+  `Data Source` = c("YouTube Studio Analytics", "GA4", "GTM"),
+  Assumptions = c(
+    "YouTube users represent core audience", "Engagement reflect active viewers", "Returning users indicate stronger community engagement"
+  )
+)
 
-2.  Cross Platform Reach
-
-3.  Returning visitor rate
-:::
-
-#### Metric Definition
-
--   Engagement: action showing viewers interaction
-
--   Cross Platform Reach: how many people engage with brand's other platforms
-
--   Returning Visitor Rate: how often viewers come back after their first interaction
-
-#### Break Down
-
--   Entry points: challanges, blogs, & about page
-
--   CTA & landing pages
-
--   Content Categories & user interest
-
-#### Data Source
-
--   GA4
-
--   Big Query Export
-
-#### Assumptions/Notes
-
--   "Community" generated thorough repeat visits, content interaction on platforms
-
--   Consistent themes, CTAs across channels
+kpi_table |>
+  gt() |>
+  tab_header(
+    title = "Stakeholder Layout",
+    subtitle = "Q2"
+  ) |>
+  cols_label(
+    KPIs = "KPI",
+    `Metric Definition` = "Metric Definition",
+    `Break Down` = "Breakdown",
+    `Data Source` = "Data Source",
+    Assumptions = "Assumptions"
+  ) |>
+  tab_options(
+    table.font.size = 13,
+    heading.title.font.size = 16,
+    heading.subtitle.font.size = 13,
+    table.width = pct(100)
+  )
+```
 
 #### STAKEHOLDER Q3
 
 > How can we deepen engagement with our YouTube viewers and build enough value and trust for them to choose a paid membership?
 
-::: callout
-### KPIs
+```{r}
+#| echo: false
+library(tidyverse)
+library(gt)
 
-1.  Engagement Rate
+kpi_table <- tibble(
+  KPIs = c("Watch Time", "Average View Duration", "Engagement Rate", "Conversion Rate"),
+  `Metric Definition` = c("Total time viewers watch videos(hrs) indicates depth of engagement & content value", "Average time viewer spends watching video (AVD= Watch Time / Views)","Percentage of users who interact with content (likes, comments, & shares E= (total interactions/total views) x100", "Percentage of engaged users who purchase a membership ((# memberships / users) x 100"
+  ),
+  `Break Down` = c("video type & content type", "video length & audience segment", "video topic &  CTA","Traffic Source & User Journey Stage"),
+  `Data Source` = c("YouTube Studio Analytics", "YouTube Studio Analytics", "YouTube Studio Analytics", "GA4 & GTM"),
+  Assumptions = c(
+    "Higher watch time indicate strong value & trust","engagement reflects active users with channel", "users who engage & return frequently are more likely to convert to paying members", "conversion tracking requires integration of mulitple platforms"
+  )
+)
 
-2.  Lead to conversion
 
-3.  Membership Conversion Rate
-:::
-
-#### Metric Definition
-
--   Engagement: action showing viewers interaction
-
--   Lead to Conversion: leads that convert to paid members
-
--   Membership Conversion Rate: YouTube users who became paying members
-
-#### Break Down
-
--   Content preferences (short-form, long form)
-
--   Viewer depth subscriber vs not subscriber
-
-#### Data Source
-
--   GA4
-
--   Big Query Export
-
-#### Assumptions/Notes
-
--   Paid conversion likely to not be first touch
-
--   Need bridge content ( free classes, challenges, series)
-
--   Membership value must differ from free content
+kpi_table |>
+  gt() |>
+  tab_header(
+    title = "Stakeholder Layout",
+    subtitle = "Q3"
+  ) |>
+  cols_label(
+    KPIs = "KPI",
+    `Metric Definition` = "Metric Definition",
+    `Break Down` = "Breakdown",
+    `Data Source` = "Data Source",
+    Assumptions = "Assumptions"
+  ) |>
+  tab_options(
+    table.font.size = 13,
+    heading.title.font.size = 16,
+    heading.subtitle.font.size = 13,
+    table.width = pct(100)
+  )
+```
 
 ## Business Problem
 
