@@ -284,9 +284,9 @@ Most users are arriving directly, which often means:
     
 - **Very little Paid Search and Organic Search traffic**  
 This suggests:  
-    -   SEO is not yet optimized
-    -   Paid campaigns are either minimal or not performing strongly
-    - site is not currently benefiting from scalable acquisition channels
+    - SEO is not yet optimized
+    - Paid campaigns are either minimal or not performing strongly
+    - Site is not currently benefiting from scalable acquisition channels
 
 ##### User Behavior  
 
@@ -339,18 +339,19 @@ Users are:
 - **/en-us landing page drives nearly all traffic**   
 This shows: 
   - It is the primary entry point 
-  - It carries the full burden of engagement and conversion Other pages (e.g., /zh-cn, /about-us) have minimal traffic
+  - It carries the full burden of engagement and conversion 
+- **Other pages (e.g., /zh-cn, /about-us) have minimal traffic**  
 This suggests: 
   - Users are not exploring the site further Internal links or content flow may be weak 
   - The site lacks a strong content journey or funnel
 
 ##### Geographic insights
 
-- **Traffic concentrated in a few regions (e.g., Singapore, U.S.)**
+- **Traffic concentrated in a few regions (e.g., Singapore, U.S.)**  
 This indicates:
     - Marketing efforts are reaching specific target markets
     - However, reach is still limited and not diversified
-- **Uneven global distribution**
+- **Uneven global distribution**  
 This suggests an opportunity to:
     - Expand targeting
     - Tailor content to different audiences
