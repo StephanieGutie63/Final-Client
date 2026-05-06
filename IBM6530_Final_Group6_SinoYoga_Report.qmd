@@ -590,7 +590,110 @@ To improve performance, Sino Yoga should focus on:
 
 Despite these limitations, the analysis provides directional insights into how channels contribute to user engagement and highlights opportunities to improve the conversion funnel.
 
-# 4.Recommendations & Limitations
+# 4.Recommendations & Limitations    
+
+## Recommendations  
+
+
+### Implement Conversion Event Tracking  
+
+**Evidence:** The dashboard shows 0 key events recorded across the reporting window, and the mart's `converted` field returns no positive cases. Without conversion events, the brand cannot measure whether marketing efforts translate into business outcomes.  
+
+**Recommendation:** Define and implement at least three conversion events in GA4 via Google Tag Manager:  
+
+- Newsletter or email signup  
+- "Start membership" or pricing page interaction  
+- Video play or content engagement event  
+
+**Expected impact:** Establishes the foundation for measurable funnel performance, enables future attribution modeling on actual conversions, and unlocks GA4's conversion-based reporting.  
+
+### Address the High Bounce Rate  
+
+**Evidence:** The dashboard reports an 89% bounce rate with average session duration of just 20 seconds. The vast majority of users land on `/en-us` and leave without interaction.  
+
+**Recommendation:** Conduct a landing page optimization initiative focused on:
+
+- Clearer above-the-fold messaging that communicates Sino Yoga's value proposition within 3 seconds
+- Visible call-to-action buttons (subscribe, watch a featured video, view pricing)
+- Reduced page load time, particularly for mobile users
+- A clear next-step pathway from the homepage into deeper content
+
+**Expected impact:** Reducing bounce rate from 89% to a more typical 60–70% range would meaningfully increase the pool of users available for retention and conversion efforts.
+
+### Activate UTM Tracking Across All Marketing Channels
+
+**Evidence:** Direct traffic dominates the channel mix (157 of 222 sessions). In digital marketing, "Direct" frequently masks untagged referrals from social media, email, and video platforms. The brand's existing YouTube presence (~2,300 subscribers) is not visibly contributing to website traffic, which is most likely an attribution gap rather than a true absence of referrals.
+
+**Recommendation:** Implement UTM tagging on every link the brand shares externally:
+
+- YouTube video descriptions and channel "About" link
+- WeChat posts and Facebook content
+- Email signature links and newsletter campaigns
+- Influencer or partner promotional links
+
+**Expected impact:** Within weeks of implementation, the team should see Direct traffic decrease and channel-specific traffic increase, providing accurate attribution data for future analysis and dashboard reporting.
+
+### Build Returning Visitor Pathways
+
+**Evidence:** The dashboard shows nearly all users are new (~150 new vs. ~5 returning). The site is acquiring traffic but not building an audience that comes back.
+
+**Recommendation:** Introduce retention mechanisms that give first-time visitors a reason to return:
+
+- Email capture with a content-driven incentive (free yoga series, beginner's guide)
+- A weekly content calendar promoted on the website with clear publishing days
+- Account creation that saves user preferences or progress
+- Retargeting through email or social channels to drive return visits
+
+**Expected impact:** Increases lifetime value per acquired user and creates a pool of returning visitors that future conversion efforts can target more cost-effectively.
+
+### Develop a Multi-Page Content Journey
+
+**Evidence:** The `/en-us` landing page accounts for nearly all sessions (149 of 162 mapped sessions). Other pages such as `/zh-cn` and `/en-us/about-us` see minimal traffic, indicating users are not navigating beyond the entry point.
+
+**Recommendation:** Strengthen internal content flow:
+
+- Add prominent links from the homepage to key supporting pages (About, Classes, Pricing, Blog)
+- Embed featured YouTube videos directly on the website to deepen on-site engagement
+- Create themed landing pages for major content categories (e.g., Five-Element Meridian Yoga, beginner classes)
+- Implement related-content suggestions at the bottom of each page
+
+**Expected impact:** Increases pages per session beyond the current 1.22 average, builds a richer behavioral dataset for analysis, and creates more conversion opportunities.
+
+### Localize for the Audience the Site Already Has
+
+**Evidence:** Geographic data shows Singapore accounting for 70% of website visitors, with the United States at 18% and China at 7.5%. The brand's marketing strategy emphasizes U.S. expansion, but the actual audience is concentrated in Southeast Asia.
+
+**Recommendation:** Align content investment with where the audience actually is:
+
+- Prioritize the `/en-us` page experience for the existing English-speaking Asian audience
+- Consider a Singapore-specific landing page or content series
+- Continue investing in U.S. growth, but treat the existing Singapore audience as a near-term monetization opportunity rather than a secondary market
+
+**Expected impact:** Captures revenue from the current audience while continuing to build the U.S. market, rather than under-serving existing users in pursuit of future ones.
+
+## Limitations
+
+### Data Pipeline Limitations
+
+- **Limited reporting window.** The analysis covers approximately four weeks of data (April 7 – May 3, 2026). Patterns observed should be treated as a snapshot rather than established trends.
+
+- **GA4 daily export still maturing.** The BigQuery export was recently linked to GA4, and the daily `events_*` tables that power the analytics mart are still populating. Future analyses on a longer time series will provide more robust findings.
+
+- **Mart-to-dashboard integration in progress.** Some descriptive insights in this report are sourced from GA4's reporting interface rather than directly from the BigQuery mart. The mart documented in Section 2 is ready to power future dashboard iterations as the data pipeline matures.
+
+### Methodology Limitations
+
+- **Engagement as proxy for conversion.** Because no transactional or signup conversion events are currently tracked, attribution analysis uses engaged sessions as a proxy. This approximates user intent but does not measure actual business outcomes.
+
+- **Single-touchpoint dominance.** The current data is dominated by single-channel user paths (mostly Direct), which limits the explanatory power of multi-touch attribution models. As cross-channel pathways are activated through UTM tagging, attribution analysis will become more meaningful.
+
+- **Sample size.** The analysis is based on 148 active users across the reporting window. Findings should be interpreted as directional rather than statistically conclusive.
+
+### Scope Limitations
+
+- **Website-only analysis.** This report focuses on website behavior captured by GA4 and BigQuery. YouTube channel performance, social media engagement, and offline conversion data are out of scope for this engagement.
+
+- **No revenue or transactional data.** Sino Yoga's website does not currently process transactions, so revenue attribution and customer lifetime value calculations are not possible at this time.
 
 # 5.Reproducible Code
 
