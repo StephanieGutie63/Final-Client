@@ -55,13 +55,11 @@ Sino Yoga's primary growth objectives shape the analytical scope of this engagem
 
 Big Query data used linked from Google Analytics of the Sino Yoga Website. Also exported old GA4 data before linked to Big Query could occur since Big Query only shows events from when it was linked to GA4 only limited data available.
 
-#### Data Mart
-
-##### **Purpose**
+### Data MartPurpose
 
 This analytics mart supports Sino Yoga’s digital marketing dashboard by standardizing website and campaign KPIs for reporting in Looker Studio. The mart is designed to reduce repeated GA4 event-level queries and create consistent KPI definitions across the team.
 
-##### **Business Questions / KPIs Supported**
+#### **Business Questions / KPIs Supported**
 
 This mart supports questions such as:
 
@@ -75,11 +73,7 @@ This mart supports questions such as:
 
 5.  Which devices and locations represent the strongest audience segments?
 
-##### **Chosen Grain**
-
-Session-level grain
-
-### Big Query
+#### Big Query
 
 #### **View 1: mart_ga4_session_summary_v1**
 
@@ -163,25 +157,6 @@ GROUP BY
 
 ![](images/clipboard-813223436.png)
 
-**Output:**
-
-| Field              | Definition                              |
-|--------------------|-----------------------------------------|
-| event_date         | Date of the session                     |
-| user_pseudo_id     | Anonymous GA4 user ID                   |
-| session_key        | Unique session identifier               |
-| source             | Traffic source                          |
-| medium             | Traffic medium                          |
-| campaign           | Campaign name                           |
-| landing_page       | First or representative page in session |
-| device_category    | Device type                             |
-| country            | User country                            |
-| region             | User region/state                       |
-| page_views         | Number of page views in session         |
-| engagement_seconds | Total engagement time in seconds        |
-| converted          | Whether session had a conversion        |
-| engaged_session    | Whether session had engagement          |
-
 #### **View 2: mart_ga4_daily_channel_kpis_v1**
 
 ``` sql
@@ -221,137 +196,57 @@ GROUP BY
   country;
 ```
 
-| Field                              | Definition                    |
-|------------------------------------|-------------------------------|
-| event_date                         | Reporting date                |
-| source                             | Traffic source                |
-| medium                             | Traffic medium                |
-| campaign                           | Campaign name                 |
-| device_category                    | Device type                   |
-| country                            | User country                  |
-| sessions                           | Total sessions                |
-| users                              | Total users                   |
-| page_views                         | Total page views              |
-| engagement_seconds                 | Total engagement time         |
-| conversions                        | Total conversions             |
-| engaged_sessions                   | Total engaged sessions        |
-| engagement_rate                    | Engaged sessions / sessions   |
-| conversion_rate                    | Conversions / sessions        |
-| avg_engagement_seconds_per_session | Engagement seconds / sessions |
-
 ![](images/clipboard-2888977705.png)
 
-### Data Studio Dashboard
+## Data Studio Dashboard
 
-<https://datastudio.google.com/embed/reporting/8fb540f7-c90c-42e4-b9d8-a06a8e872fc6/page/NDKxF>
+<https://datastudio.google.com/reporting/8fb540f7-c90c-42e4-b9d8-a06a8e872fc6/page/NDKxF/edit>
 
-#### Key Insights from Studio Dashboard
+![](images/clipboard-2749133414.png)
+
+### Key Insights from Studio Dashboard
 
 The Studio dashboard provides a snapshot of Sino Yoga's website performance and shows that the site is still in an early growth stage with limited engagement.
 
-##### Overall performance
+#### Overall performance
 
--   **148 active users**\
-    Reflects a small but growing audience, meaning awareness efforts (e.g., YouTube, social, or direct sharing) are starting to bring people to the site.
+#### Early Growth, Low Engagement
 
--   **Average session duration: 20 seconds**\
-    This is extremely low and suggests that users are not finding what they expect or are not motivated to stay. It may indicate unclear messaging, slow loading, or weak content relevance.
+-   148 users = small but growing awareness
 
--   **Bounce rate: 89%**\
-    A very high bounce rate means most users leave after viewing only one page. This signals issues with:
+-   20 sec avg session + 89% bounce rate
 
-    -   First impressions (design or clarity)
-    -   Content relevance to user intent
-    -   Lack of clear next steps
+    -   Users leave quickly = weak first impression & unclear value
 
-##### Traffic Sources
+#### Traffic & Acquisition Issues
 
--   **Direct traffic dominates**\
-    Most users are arriving directly, which often means:
-    -   Traffic is coming from YouTube links, social media, or shared URLs
-    -   There is low discoverability via search engines
--   **Very little Paid Search and Organic Search traffic**\
-    This suggests:
-    -   SEO is not yet optimized
-    -   Paid campaigns are either minimal or not performing strongly
-    -   Site is not currently benefiting from scalable acquisition channels
--   **Direct traffic dominates**\
-    Most users are arriving directly, which often means:
-    -   Traffic is coming from YouTube links, social media, or shared URLs
-    -   There is low discoverability via search engines
--   **Very little Paid Search and Organic Search traffic**\
-    This suggests:
-    -   SEO is not yet optimized
-    -   Paid campaigns are either minimal or not performing strongly
-    -   Site is not currently benefiting from scalable acquisition channels
+Direct traffic dominates
 
-##### User Behavior
+-   Likely from YouTube/social, not scalable Low SEO & paid traffic
 
--   **Mostly new users**
-    -   People are visiting once but not coming back
-    -   The site is not yet building retention or loyalty
--   **Primarily desktop users**\
-    This suggests:
-    -   The main audience currently accesses content via desktop
-    -   If mobile experience is weak, it could be limiting growth
--   **Low engagement overall**\
-    Users are:
-    -   Leaving quickly
-    -   Not navigating to additional pages
-    -   Not interacting with features
-    -   This points to weak user experience or unclear value proposition
+-   Poor discoverability = limited growth potential
 
-##### Content performance
+#### **User Behavior Gaps**
 
--   **/en-us landing page drives nearly all traffic**\
-    This shows:
-    -   It is the primary entry point
-    -   It carries the full burden of engagement and conversion
--   **Other pages (e.g., /zh-cn, /about-us) have minimal traffic**\
-    This suggests:
-    -   Users are not exploring the site further
-    -   Internal links or content flow may be weak
-    -   The site lacks a strong content journey or funnel
+-   Mostly new users (low retention)
 
-##### User Behavior
+-   Low interaction + no page exploration
 
--   **Mostly new users**
-    -   People are visiting once but not coming back
-    -   The site is not yet building retention or loyalty
--   **Primarily desktop users**\
-    This suggests:
-    -   The main audience currently accesses content via desktop
-    -   If mobile experience is weak, it could be limiting growth
--   **Low engagement overall**\
-    Users are:
-    -   Leaving quickly
-    -   Not navigating to additional pages
-    -   Not interacting with features
-    -   This points to weak user experience or unclear value proposition
+```         
+Weak engagement & unclear user journey
+```
 
-##### Content performance
+#### **Content & Funnel Problem**
 
--   **/en-us landing page drives nearly all traffic**\
-    This shows:
-    -   It is the primary entry point
-    -   It carries the full burden of engagement and conversion
--   **Other pages (e.g., /zh-cn, /about-us) have minimal traffic**\
-    This suggests:
-    -   Users are not exploring the site further Internal links or content flow may be weak
-    -   The site lacks a strong content journey or funnel
+-   /en-us = main entry page (almost all traffic)
 
-##### Geographic insights
+-   Other pages barely visited
 
--   **Traffic concentrated in a few regions (e.g., Singapore, U.S.)**\
-    This indicates:
-    -   Marketing efforts are reaching specific target markets
-    -   However, reach is still limited and not diversified
--   **Uneven global distribution**\
-    This suggests an opportunity to:
-    -   Expand targeting
-    -   Tailor content to different audiences
+```         
+No content flow → no conversion funnel
+```
 
-### KPI Logic & Controls
+## KPI Logic & Controls
 
 #### Core KPIs include:
 
@@ -369,158 +264,35 @@ The Studio dashboard provides a snapshot of Sino Yoga's website performance and 
 
 -   Conversion rate
 
-### Definitions & Caveats
-
-| Field Name | Definition | Caveats |
-|------------------------|------------------------|------------------------|
-| event_date | Date when the session or event occurred | Based on GA4 event date |
-| user_pseudo_id | Anonymous GA4 user identifier | Not the same as a known customer ID |
-| session_key | Combined user and session ID | Depends on GA4 session ID being present |
-| source | Where traffic came from | May show direct or not set if missing |
-| medium | Type of traffic source | UTM tagging improves accuracy |
-| campaign | Campaign name | Requires consistent UTM campaign tagging |
-| landing_page | Page associated with the session | For v1, uses representative page from session |
-| device_category | Device type such as mobile or desktop | Based on GA4 device data |
-| country | User country | May be affected by privacy limits |
-| region | User region/state | May be missing for some users |
-| page_views | Count of page view events | Multiple views in one session are counted |
-| engagement_seconds | Total engaged time in seconds | Derived from GA4 engagement time |
-| converted | Indicates whether conversion occurred | Depends on conversion events being implemented |
-| engaged_session | Indicates whether user engaged | Simplified v1 definition |
-| sessions | Count of unique sessions | Based on session_key |
-| users | Count of unique anonymous users | May differ from known CRM users |
-| engagement_rate | Share of sessions with engagement | Formula: engaged_sessions / sessions |
-| conversion_rate | Share of sessions that converted | Formula: conversions / sessions |
-| avg_engagement_seconds_per_session | Average engagement time per session | Formula: engagement_seconds / sessions |
-
 ### STAKEHOLDER Q1
 
 > How do we increase visibility on the YouTube Channel and attract high-intent users?
 
-```{r}
-#| echo: false
-library(tidyverse)
-library(gt)
-
-kpi_table <- tibble(
-  KPIs = c("Impressions", "Click-Through Rate (CTR)"),
-  `Metric Definition` = c("Number of times a video thumbnail is shown to users on YouTube, measures how often content is seen reach and visibility of videos",
-    "CTR = (Clicks / Impressions x 100) Measuring how effectively titles/thumbnails drive clicks on videos"
-  ),
-  `Break Down` = c("Traffic Source (Search, Browse, Suggested", "Video Title /Keyword & UTM"),
-  `Data Source` = c("YouTube Studio Analytics", "YouTube, GA4 & GTM"),
-  Assumptions = c(
-    "Search Traffic= high intent users", "CTR reflects content packaging effectiveness"
-  )
-)
-
-kpi_table |>
-  gt() |>
-  tab_header(
-    title = "Stakeholder Layout",
-    subtitle = "Q1"
-  ) |>
-  cols_label(
-    KPIs = "KPI",
-    `Metric Definition` = "Metric Definition",
-    `Break Down` = "Breakdown",
-    `Data Source` = "Data Source",
-    Assumptions = "Assumptions"
-  ) |>
-  tab_options(
-    table.font.size = 13,
-    heading.title.font.size = 16,
-    heading.subtitle.font.size = 13,
-    table.width = pct(100)
-  )
-```
+| KPIs | Metric Definition | BreakDown | Data Source | Assumptions |
+|---------------|---------------|---------------|---------------|---------------|
+| Impressions | Number of times a video thumbnail is shown to users on YouTube, measures how often content is seen reach and visibility of videos | Traffic Source (Search, Browse, Suggested | YouTube Studio Analytics | Search Traffic= high intent users |
+| Click-Through Rate (CTR) | CTR = (Clicks / Impressions x 100) Measuring how effectively titles/thumbnails drive clicks on videos | Video Title /Keyword & UTM | YouTube, GA4 & GTM | CTR reflects content packaging effectiveness |
 
 ### STAKEHOLDER Q2
 
 > How can we build a cohesive yoga community that connects viewers across YouTube, our website to drive engagement and long-term growth?
 
-```{r}
-#| echo: false
-library(tidyverse)
-library(gt)
-
-kpi_table <- tibble(
-  KPIs = c("Cross Platform Traffic (YouTube -> Website)", "Engagement Rate", "Returning Users"),
-  `Metric Definition` = c("Number of website sessions from YouTube", " Percentage of users who interact with content (likes, comments, & shares E= (total interactions/total views) x100","Percentage of users who return to the website or channel after first visit Returning Users Rate =(Returning users / Total Users) x100"
-  ),
-  `Break Down` = c("Traffic Source & UTM Parameters", "Device & Content Type","Geography" ),
-  `Data Source` = c("YouTube & GTM", "GA4 & YouTube", "GA4 & YouTube"),
-  Assumptions = c(
-    "YouTube users represent core audience", "Engagement reflect active viewers", "Returning users indicate stronger community engagement"
-  )
-)
-
-kpi_table |>
-  gt() |>
-  tab_header(
-    title = "Stakeholder Layout",
-    subtitle = "Q2"
-  ) |>
-  cols_label(
-    KPIs = "KPI",
-    `Metric Definition` = "Metric Definition",
-    `Break Down` = "Breakdown",
-    `Data Source` = "Data Source",
-    Assumptions = "Assumptions"
-  ) |>
-  tab_options(
-    table.font.size = 13,
-    heading.title.font.size = 16,
-    heading.subtitle.font.size = 13,
-    table.width = pct(100)
-  )
-```
+| KPIs | Metric Definition | BreakDown | Data Source | Assumptions |
+|---------------|---------------|---------------|---------------|---------------|
+| Cross Platform Traffic (YouTube -\> Website) | Number of website sessions from YouTube | Traffic Source & UTM Parameters | YouTube & GTM | YouTube users represent core audience |
+| Engagement Rate | Percentage of users who interact with content (likes, comments, & shares E= (total interactions/total views) x100 | Video Title /Keyword & UTDevice & Content Type | GA4 & YouTube | Engagement reflect active viewers |
+| Returning Users | Percentage of users who return to the website or channel after first visit Returning Users Rate =(Returning users / Total Users) x100 | New users vs. Returning users | GA4 & YouTube | Returning users indicate stronger community engagement |
 
 ### STAKEHOLDER Q3
 
 > How can we deepen engagement with our YouTube viewers and build enough value and trust for them to choose a paid membership?
 
-```{r}
-#| echo: false
-library(tidyverse)
-library(gt)
-
-kpi_table <- tibble(
-  KPIs = c("Watch Time", "Average View Duration", "Engagement Rate", "Conversion Rate"),
-  `Metric Definition` = c("Total time viewers watch videos(hrs) indicates depth of engagement & content value", "Average time viewer spends watching video (AVD= Watch Time / Views)","Percentage of users who interact with content (likes, comments, & shares E= (total interactions/total views) x100", "Percentage of engaged users who purchase a membership ((# memberships / users) x 100"
-  ),
-  `Break Down` = c("video type & content type", "video length & audience segment", "video topic &  CTA","Traffic Source & User Journey Stage"),
-  `Data Source` = c("YouTube Studio Analytics", "YouTube Studio Analytics", "YouTube Studio Analytics", "GA4 & GTM"),
-  Assumptions = c(
-    "Higher watch time indicate strong value & trust","engagement reflects active users with channel", "users who engage & return frequently are more likely to convert to paying members", "conversion tracking requires integration of mulitple platforms"
-  )
-)
-
-
-kpi_table |>
-  gt() |>
-  tab_header(
-    title = "Stakeholder Layout",
-    subtitle = "Q3"
-  ) |>
-  cols_label(
-    KPIs = "KPI",
-    `Metric Definition` = "Metric Definition",
-    `Break Down` = "Breakdown",
-    `Data Source` = "Data Source",
-    Assumptions = "Assumptions"
-  ) |>
-  tab_options(
-    table.font.size = 13,
-    heading.title.font.size = 16,
-    heading.subtitle.font.size = 13,
-    table.width = pct(100)
-  )
-```
-
-#### KPI Tree
-
-The three stakeholder questions roll up into a unified KPI hierarchy organized around the path from acquisition to paid membership growth
+| KPIs | Metric Definition | BreakDown | Data Source | Assumptions |
+|---------------|---------------|---------------|---------------|---------------|
+| Watch Time | Total time viewers watch videos(hrs) indicates depth of engagement & content value | video type & content type | YouTube Studio Analytics | Higher watch time indicate strong value & trust |
+| Average View Durationgement Rate | Average time viewer spends watching video (AVD= Watch Time / Views) | video length & audience segment | YouTube Studio Analytics | engagement reflects active users with channel |
+| Engagement Rate | Percentage of users who interact with content (likes, comments, & shares E= (total interactions/total views) x100 | video topic & CTA | YouTube Studio Analytics | users who engage & return frequently are more likely to convert to paying members |
+| Conversion Rate | Percentage of engaged users who purchase a membership ((# memberships / users) x 100" | Traffic Source & User Journey Stage | GA4 & GTM | conversion tracking requires integration of mulitple platform |
 
 # 3.Advanced Analysis
 
