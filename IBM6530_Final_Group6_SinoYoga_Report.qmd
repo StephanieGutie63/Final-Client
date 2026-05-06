@@ -54,6 +54,10 @@ Sino Yoga's primary growth objectives shape the analytical scope of this engagem
 -   Improve viewer retention and returning audience rate
 -   Develop a sustainable monetization pathway
 
+## Presentation Slides
+
+#embed revealjs or link
+
 # 2.Descriptive Insights 
 
 ## Deliverable 1 
@@ -61,6 +65,8 @@ Sino Yoga's primary growth objectives shape the analytical scope of this engagem
 ### Data Source
 
 ### Data Studio Dashboard
+
+#link dashboard
 
 ### KPI Logic & Controls
 
@@ -129,3 +135,9 @@ The three stakeholder questions roll up into a unified KPI hierarchy organized a
 # 5.Limitations
 
 # 6.Reproducible Code
+
+# Appendix
+
+#url to gitpages
+
+#and github repo
