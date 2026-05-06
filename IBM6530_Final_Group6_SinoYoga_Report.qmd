@@ -1,0 +1,102 @@
+---
+title: "Sino Yoga: Marketing Analytics Final Client Report"
+subtitle: "IBM 6530 — Spring 2026"
+author: 
+  - "Stephanie Gutierrez"
+  - "Marlen Garcia"
+  - "Abby Ortiz"
+  - "Erika Barajas"
+date: "May 6, 2026"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    theme: cosmo
+    code-fold: true
+    code-tools: true
+    embed-resources: true
+execute:
+  warning: false
+  message: false
+---
+
+# Executive Summary
+
+::: callout-note
+## TO ADD
+
+-   1 paragraph: client overview, business question, data foundation
+-   Headline finding (1–2 sentences)
+-   Top 2–3 recommendations (1 sentence each)
+-   Keep to ½ page max
+:::
+
+# 1. Business Context & Measurement Plan
+
+## Client Overview
+
+Sino Yoga is a cross-cultural yoga and wellness brand founded by Yang Qi, integrating Traditional Chinese Medicine with yoga practice through her signature Five-Element Meridian Yoga method. The brand is expanding from China into the U.S. market and uses YouTube (@Sinoyoga) as its primary discovery channel, with the long-term goal of monetizing its audience through tiered, subscription-based yoga memberships. Sino Yoga maintains a multi-platform digital presence across YouTube, WeChat, a newly launched Facebook page, and the [Sino Yoga website](https://sinoyoga.org/en-us).
+
+## Business Objectives
+
+Sino Yoga's primary growth objectives shape the analytical scope of this engagement:
+
+- Increase brand awareness across markets
+- Build a cohesive multi-channel platform experience
+- Grow subscriber base across YouTube and the website
+- Strengthen brand visibility in U.S. and international markets
+- Improve viewer retention and returning audience rate
+- Develop a sustainable monetization pathway
+
+## Stakeholder Questions
+
+The analysis is structured around three primary stakeholder questions, each translated into measurable KPIs and supported by data from GA4 and BigQuery.
+
+### Q1: Can YouTube serve as a meaningful traffic source and funnel for brand expansion in the U.S. market?
+
+| KPI | Definition |
+|---|---|
+| YouTube referral sessions | Number of website sessions originating from YouTube |
+| YouTube traffic share | YouTube's share of total website acquisition |
+| YouTube-assisted conversion rate | Conversions where YouTube appears in the path |
+| YouTube traffic engagement rate | Engagement quality of YouTube-sourced sessions |
+
+**Data sources:** YouTube Analytics (video views, link clicks), GA4 (traffic acquisition, engagement metrics, funnel and path explorations).
+
+**Diagnostic cuts:** by video, by landing page, by device, by content type.
+
+**Assumption:** YouTube functions as a top-of-funnel discovery channel, not as the last-click attribution source. Success is measured through actual conversions further down the funnel.
+
+### Q2: How can Sino Yoga build a cohesive yoga community that connects viewers across YouTube, the website, and social media platforms?
+
+| KPI | Definition |
+|---|---|
+| Engagement | User actions including comments, likes, and shares |
+| Cross-platform reach | Number of users engaging with the brand on multiple platforms |
+| Returning visitor rate | Frequency with which viewers return after first interaction |
+
+**Data sources:** GA4 UI, BigQuery export.
+
+**Diagnostic cuts:** entry points (challenges, blogs, About page), CTAs and landing pages, content categories and user interest.
+
+**Assumption:** Community is built through repeat visits and content interaction across platforms, supported by consistent themes and CTAs.
+
+### Q3: How can Sino Yoga deepen engagement with YouTube viewers and build enough trust for them to choose a paid membership?
+
+| KPI | Definition |
+|---|---|
+| YouTube viewer engagement rate | Extent to which the user is actively involved with the brand |
+| Lead-to-conversion rate | Leads that convert to paid members |
+| YouTube membership conversion rate | YouTube users who become paying members |
+
+**Data sources:** GA4 UI, BigQuery.
+
+**Diagnostic cuts:** content preferences (short-form vs. long-form), offer type (free, discount intro, monthly subscription), viewer depth (subscribers vs. non-subscribers).
+
+**Assumptions:** Paid conversion is unlikely to be first-touch, bridge content (free classes, challenges, series) is needed, and membership value must differ meaningfully from free content.
+
+## KPI Tree
+
+The three stakeholder questions roll up into a unified KPI hierarchy organized around the path from acquisition to paid membership growth:
+
