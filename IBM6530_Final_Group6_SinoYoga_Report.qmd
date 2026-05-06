@@ -64,13 +64,81 @@ Sino Yoga's primary growth objectives shape the analytical scope of this engagem
 
 ### Data Source
 
+#Big query old data manual import
+
+#### Data Mart
+
+##### **Purpose**
+
+This analytics mart supports Sino Yoga’s digital marketing dashboard by standardizing website and campaign KPIs for reporting in Looker Studio. The mart is designed to reduce repeated GA4 event-level queries and create consistent KPI definitions across the team.
+
+##### **Business Questions / KPIs Supported**
+
+This mart supports questions such as:
+
+1.   How much website traffic is Sino Yoga receiving?
+
+2.   Which channels drive the most sessions?
+
+3.   Are users engaging with the website?
+
+4.   Which landing pages perform best?
+
+5.   Which devices and locations represent the strongest audience segments?
+
+##### **Chosen Grain**
+
+Session-level grain
+
+#sql query
+
 ### Data Studio Dashboard
 
-#link dashboard
+#summary about dashboard
+
+<https://datastudio.google.com/embed/reporting/8fb540f7-c90c-42e4-b9d8-a06a8e872fc6/page/NDKxF>
 
 ### KPI Logic & Controls
 
+#### Core KPIs include:
+
+-    Sessions
+
+-    Users
+
+-    Page views
+
+-    Engagement rate
+
+-    Average engagement time
+
+-    Conversions
+
+-    Conversion rate
+
 ### Definitions & Caveats
+
+| Field Name | Definition | Caveats |
+|----|----|----|
+| event_date | Date when the session or event occurred | Based on GA4 event date |
+| user_pseudo_id | Anonymous GA4 user identifier | Not the same as a known customer ID |
+| session_key | Combined user and session ID | Depends on GA4 session ID being present |
+| source | Where traffic came from | May show direct or not set if missing |
+| medium | Type of traffic source | UTM tagging improves accuracy |
+| campaign | Campaign name | Requires consistent UTM campaign tagging |
+| landing_page | Page associated with the session | For v1, uses representative page from session |
+| device_category | Device type such as mobile or desktop | Based on GA4 device data |
+| country | User country | May be affected by privacy limits |
+| region | User region/state | May be missing for some users |
+| page_views | Count of page view events | Multiple views in one session are counted |
+| engagement_seconds | Total engaged time in seconds | Derived from GA4 engagement time |
+| converted | Indicates whether conversion occurred | Depends on conversion events being implemented |
+| engaged_session | Indicates whether user engaged | Simplified v1 definition |
+| sessions | Count of unique sessions | Based on session_key |
+| users | Count of unique anonymous users | May differ from known CRM users |
+| engagement_rate | Share of sessions with engagement | Formula: engaged_sessions / sessions |
+| conversion_rate | Share of sessions that converted | Formula: conversions / sessions |
+| avg_engagement_seconds_per_session | Average engagement time per session | Formula: engagement_seconds / sessions |
 
 ### Stakeholder Questions
 
