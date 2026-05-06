@@ -248,6 +248,66 @@ GROUP BY
 
 <https://datastudio.google.com/embed/reporting/8fb540f7-c90c-42e4-b9d8-a06a8e872fc6/page/NDKxF>
 
+#### Key Insights from Studio Dashboard
+The Studio dashboard provides a snapshot of Sino yoga's website performance and shows that the site is still in an early grwoth stage with limited engagement. 
+
+##### Overall performance
+
+- **148 active users**  
+Reflects a small but growing audience, meaning awareness efforts (e.g., YouTube, social, or direct sharing) are starting to bring people to the site.
+
+- **Average session duration: 20 seconds**  
+This is extremely low and suggests that users are not finding what they expect or are not motivated to stay. It may indicate unclear messaging, slow loading, or weak content relevance.
+
+- **Bounce rate: 89%**  
+A very high bounce rate means most users leave after viewing only one page. This signals issues with:  
+  - First impressions (design or clarity)  
+  - Content relevance to user intent  
+  - Lack of clear next steps    
+   
+##### Traffic Sources
+
+- **Direct traffic dominates**  
+Most users are arriving directly, which often means:
+  - Traffic is coming from YouTube links, social media, or shared URLs  
+  - There is low discoverability via search engines  
+
+- **Very little Paid Search and Organic Search traffic**  
+This suggests: 
+  - SEO is not yet optimized  
+  - Paid campaigns are either minimal or not performing strongly - site is not currently benefiting from scalable acquisition channels 
+    
+##### User Behavior 
+
+- **Mostly new users**
+  - People are visiting once but not coming back  
+  - The site is not yet building retention or loyalty  
+  
+- **Primarily desktop users**
+This suggests:
+  - The main audience currently accesses content via desktop  
+  - If mobile experience is weak, it could be limiting growth
+  
+- **Low engagement overall**
+Users are:
+  - Leaving quickly
+  - Not navigating to additional pages
+  - Not interacting with features
+  - This points to weak user experience or unclear value proposition
+
+- **Content performance**
+  - /en-us landing page drives nearly all traffic
+    This shows:
+    - It is the primary entry point
+    - It carries the full burden of engagement and conversion
+Other pages (e.g., /zh-cn, /about-us) have minimal traffic
+This suggests:
+Users are not exploring the site further
+Internal links or content flow may be weak
+→ The site lacks a strong content journey or funnel   
+
+
+
 ### KPI Logic & Controls
 
 #### Core KPIs include:
