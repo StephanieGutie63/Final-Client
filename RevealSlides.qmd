@@ -541,7 +541,7 @@ The three stakeholder questions roll up into a unified KPI hierarchy organized a
 
 Four attribution approaches are applied to understand channel contribution across the funnel:
 
--   **First-Touch** -\> Awareness (first interaction
+-   **First-Touch** -\> Awareness (first interaction)
 
 -   **Last-Touch** -\> Conversion (final interaction)
 
@@ -590,93 +590,53 @@ Despite these limitations, the analysis provides directional insights into how c
 
 ## Recommendations
 
-### Conversion Event Tracking
+Six data-driven recommendations grounded in dashboard findings:
 
-**Evidence:** The dashboard shows 0 key events recorded across the reporting window, and the mart's `converted` field returns no positive cases. Without conversion events, the brand cannot measure whether marketing efforts translate into business outcomes.
-
-**Recommendation:** Define and implement at least three conversion events in GA4 via Google Tag Manager:
-
--   Newsletter or email signup
--   "Start membership" or pricing page interaction
--   Video play or content engagement event
-
-### Bounce Rate Reduction
-
-**Evidence:** The dashboard reports an 89% bounce rate with average session duration of just 20 seconds. The vast majority of users land on `/en-us` and leave without interaction.
-
-**Recommendation:** Conduct a landing page optimization initiative focused on:
-
--   Clearer above-the-fold messaging that communicates Sino Yoga's value within 3 seconds
--   Visible call-to-action buttons (subscribe, watch a featured video, view pricing)
--   Reduced page load time, particularly for mobile users
--   A clear next-step pathway from the homepage into deeper content
-
-### UTM Tracking Activation
-
-**Evidence:** Direct traffic dominates the channel mix (157 of 222 sessions). In digital marketing, "Direct" frequently masks untagged referrals from social media, email, and video platforms. The brand's existing YouTube presence (\~2,300 subscribers) is not visibly contributing to website traffic, which is likely an attribution gap rather than a true absence of referrals.
-
-**Recommendation:** Implement UTM tagging on every link the brand shares externally:
-
--   YouTube video descriptions and channel "About" link
--   WeChat posts and Facebook content
--   Email signature links and newsletter campaigns
--   Influencer or partner promotional links
-
-### Returning Visitor Pathways
-
-**Evidence:** The dashboard shows nearly all users are new (\~150 new vs. \~5 returning). The site is acquiring traffic but not building an audience that comes back.
-
-**Recommendation:** Introduce retention mechanisms that give first-time visitors a reason to return:
-
--   Email capture with a content-driven incentive (free yoga series, beginner's guide)
--   A weekly content calendar with clear publishing days
--   Account creation that saves user preferences or progress
--   Retargeting through email or social channels
-
-### Multi-Page Content Journey
-
-**Evidence:** The `/en-us` landing page accounts for nearly all sessions (149 of 162 mapped sessions). Other pages such as `/zh-cn` and `/en-us/about-us` see minimal traffic, indicating users are not navigating beyond the entry point.
-
-**Recommendation:** Strengthen internal content flow:
-
--   Add prominent links from the homepage to key supporting pages (About, Classes, Pricing, Blog)
--   Embed featured YouTube videos directly on the website
--   Create themed landing pages for major content categories
--   Implement related-content suggestions at the bottom of each page
-
-### Audience Localization
-
-**Evidence:** Geographic data shows Singapore accounting for 70% of website visitors, with the United States at 18% and China at 7.5%. The brand's marketing strategy emphasizes U.S. expansion, but the actual audience is concentrated in Southeast Asia.
-
-**Recommendation:** Align content investment with where the audience actually is:
-
--   Prioritize the `/en-us` page experience for the existing English-speaking Asian audience
--   Consider a Singapore-specific landing page or content series
--   Continue investing in U.S. growth while treating the existing Singapore audience as a near-term monetization opportunity
+-   **Conversion Event Tracking** — implement signup, membership, and engagement events in GA4 (currently 0 tracked)
+-   **Bounce Rate Reduction** — landing page optimization to address 89% bounce rate and 20-second sessions
+-   **UTM Tracking Activation** — tag external links to surface YouTube, WeChat, and social referrals
+-   **Returning Visitor Pathways** — email capture, content calendar, and retargeting for retention
+-   **Multi-Page Content Journey** — strengthen internal links, embed videos, expand beyond `/en-us`
+-   **Audience Localization** — prioritize the existing Singapore audience (70%) alongside U.S. growth
 
 ## Limitations
 
-### Data Pipeline
+**Data Pipeline**
 
--   **Limited reporting window.** The analysis covers approximately four weeks of data (April 7 – May 3, 2026). Patterns should be treated as a snapshot rather than established trends.
+-   4-week reporting window — directional findings, not established trends
+-   GA4 daily export still maturing
+-   Mart-to-dashboard integration in progress
 
--   **GA4 daily export still maturing.** The BigQuery export was recently linked to GA4, and the daily `events_*` tables are still populating. Future analyses on a longer time series will provide more robust findings.
+**Methodology**
 
--   **Mart-to-dashboard integration in progress.** Some descriptive insights in this report are sourced from GA4's reporting interface rather than directly from the BigQuery mart. The mart documented in Section 2 is ready to power future dashboard iterations.
+-   Engagement used as proxy for conversion
+-   Single-touchpoint dominance limits multi-touch attribution
+-   Sample size of 148 users
 
-### Methodology
+**Scope**
 
--   **Engagement as proxy for conversion.** Because no transactional or signup conversion events are currently tracked, attribution analysis uses engaged sessions as a proxy. This approximates user intent but does not measure actual business outcomes.
+-   Website-only analysis
+-   No revenue or transactional data available
 
--   **Single-touchpoint dominance.** The current data is dominated by single-channel user paths (mostly Direct), which limits the explanatory power of multi-touch attribution models.
+## Next Steps
 
--   **Sample size.** The analysis is based on 148 active users across the reporting window. Findings should be interpreted as directional rather than statistically conclusive.
+**Measurement Foundation (Immediate)**
 
-### Scope
+-   Add UTM-tagged website link to YouTube channel "About" page and top-performing video descriptions
+-   Apply UTM tagging template to every new video at upload going forward
+-   Reconnect the dashboard to the BigQuery mart for ongoing reporting
 
--   **Website-only analysis.** This report focuses on website behavior captured by GA4 and BigQuery. YouTube channel performance, social media engagement, and offline conversion data are out of scope.
+**Build Out the Pipeline (1–3 Months)**
 
--   **No revenue or transactional data.** Sino Yoga's website does not currently process transactions, so revenue attribution and customer lifetime value calculations are not possible at this time. \# 5.Reproducible Code
+-   Allow daily GA4 export tables to mature in BigQuery
+-   Begin tracking cross-channel referral patterns through UTM data
+-   Identify which YouTube content actually drives website traffic
+
+**Strategic Iteration (3+ Months)**
+
+-   Re-run attribution analysis with real multi-touch user paths
+-   Evaluate which YouTube content categories drive the strongest website engagement
+-   Use these insights to inform content strategy and any future website investments
 
 ## R Code Example Using Sino Yoga Journey Data
 
