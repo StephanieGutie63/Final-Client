@@ -536,33 +536,27 @@ Additionally, because true user-level multi-touch journey data is not fully avai
 
 Four attribution approaches are applied to understand channel contribution across the funnel:
 
--   **First-Touch Attribution**\
-    Assigns full credit to the first interaction channel, capturing awareness and discovery.
+-   **First-Touch** -\> Awareness (first interaction
 
--   **Last-Touch Attribution**\
-    Assigns full credit to the final interaction channel, representing conversion or decision-stage behavior.
+-   **Last-Touch** -\> Conversion (final interaction)
 
--   **Linear Attribution**\
-    Distributes equal credit across all touchpoints, reflecting the full customer journey.
+-   **Linear** -\> Equal credit across journey
 
--   **Markov Chain Attribution**\
-    Uses probabilistic modeling to estimate the importance of each channel based on removal effects, identifying which channels are most critical to conversion paths.
+-   **Markov Chain** -\> Most impactful channels
 
 ## Key Insights from Attribution Analysis
 
-The attribution models provide a more complete view of how users interact with Sino Yoga across multiple touchpoints:
-
 -   **YouTube plays a critical awareness role**\
-    First-touch attribution indicates that YouTube is a primary entry point for users, supporting initial discovery and brand exposure.
+    Primary entry point for users, supporting initial discovery and brand exposure.
 
 -   **Direct traffic dominates final interactions**\
-    Last-touch attribution shows that many users return directly, suggesting that users revisit the site after initial exposure rather than converting immediately.
+    Many users return directly, suggesting that users revisit the site after initial exposure rather than converting immediately.
 
 -   **Search and cross-channel interactions support mid-funnel behavior**\
     Channels such as Google Search appear within multi-step journeys, indicating that users seek additional information before engaging further.
 
 -   **User journeys are multi-touch, not single-channel**\
-    Linear and Markov models demonstrate that engagement is driven by a combination of channels working together rather than a single source.
+    Engagement is driven by a combination of channels working together rather than a single source.
 
 ## Business Interpretation
 
