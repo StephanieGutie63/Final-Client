@@ -76,7 +76,7 @@ Session-level grain
 
 ### Big Query
 
-#### **View 1: `mart_ga4_session_summary_v1`**
+#### **View 1: mart_ga4_session_summary_v1**
 
 ```` sql
 ```sql
@@ -181,7 +181,7 @@ GROUP BY
 | converted          | Whether session had a conversion        |
 | engaged_session    | Whether session had engagement          |
 
-#### **View 2: `mart_ga4_daily_channel_kpis_v1`**
+#### **View 2: mart_ga4_daily_channel_kpis_v1**
 
 ```` sql
 ```sql
@@ -244,69 +244,55 @@ GROUP BY
 
 ### Data Studio Dashboard
 
-#summary about dashboard
-
 <https://datastudio.google.com/embed/reporting/8fb540f7-c90c-42e4-b9d8-a06a8e872fc6/page/NDKxF>
 
 #### Key Insights from Studio Dashboard
-The Studio dashboard provides a snapshot of Sino yoga's website performance and shows that the site is still in an early grwoth stage with limited engagement. 
+
+The Studio dashboard provides a snapshot of Sino yoga's website performance and shows that the site is still in an early grwoth stage with limited engagement.
 
 ##### Overall performance
 
-- **148 active users**  
-Reflects a small but growing audience, meaning awareness efforts (e.g., YouTube, social, or direct sharing) are starting to bring people to the site.
+-   **148 active users**\
+    Reflects a small but growing audience, meaning awareness efforts (e.g., YouTube, social, or direct sharing) are starting to bring people to the site.
 
-- **Average session duration: 20 seconds**  
-This is extremely low and suggests that users are not finding what they expect or are not motivated to stay. It may indicate unclear messaging, slow loading, or weak content relevance.
+-   **Average session duration: 20 seconds**\
+    This is extremely low and suggests that users are not finding what they expect or are not motivated to stay. It may indicate unclear messaging, slow loading, or weak content relevance.
 
-- **Bounce rate: 89%**  
-A very high bounce rate means most users leave after viewing only one page. This signals issues with:  
-  - First impressions (design or clarity)  
-  - Content relevance to user intent  
-  - Lack of clear next steps    
-   
+-   **Bounce rate: 89%**\
+    A very high bounce rate means most users leave after viewing only one page. This signals issues with:
+
+    -   First impressions (design or clarity)\
+    -   Content relevance to user intent\
+    -   Lack of clear next steps
+
 ##### Traffic Sources
 
-- **Direct traffic dominates**  
-Most users are arriving directly, which often means:
-  - Traffic is coming from YouTube links, social media, or shared URLs  
-  - There is low discoverability via search engines  
+-   **Direct traffic dominates**\
+    Most users are arriving directly, which often means:
+    -   Traffic is coming from YouTube links, social media, or shared URLs\
+    -   There is low discoverability via search engines
+-   **Very little Paid Search and Organic Search traffic**\
+    This suggests:
+    -   SEO is not yet optimized\
+    -   Paid campaigns are either minimal or not performing strongly - site is not currently benefiting from scalable acquisition channels
 
-- **Very little Paid Search and Organic Search traffic**  
-This suggests: 
-  - SEO is not yet optimized  
-  - Paid campaigns are either minimal or not performing strongly - site is not currently benefiting from scalable acquisition channels 
-    
-##### User Behavior 
+##### User Behavior
 
-- **Mostly new users**
-  - People are visiting once but not coming back  
-  - The site is not yet building retention or loyalty  
-  
-- **Primarily desktop users**
-This suggests:
-  - The main audience currently accesses content via desktop  
-  - If mobile experience is weak, it could be limiting growth
-  
-- **Low engagement overall**
-Users are:
-  - Leaving quickly
-  - Not navigating to additional pages
-  - Not interacting with features
-  - This points to weak user experience or unclear value proposition
-
-- **Content performance**
-  - /en-us landing page drives nearly all traffic
-    This shows:
-    - It is the primary entry point
-    - It carries the full burden of engagement and conversion
-Other pages (e.g., /zh-cn, /about-us) have minimal traffic
-This suggests:
-Users are not exploring the site further
-Internal links or content flow may be weak
-→ The site lacks a strong content journey or funnel   
-
-
+-   **Mostly new users**
+    -   People are visiting once but not coming back\
+    -   The site is not yet building retention or loyalty
+-   **Primarily desktop users** This suggests:
+    -   The main audience currently accesses content via desktop\
+    -   If mobile experience is weak, it could be limiting growth
+-   **Low engagement overall** Users are:
+    -   Leaving quickly
+    -   Not navigating to additional pages
+    -   Not interacting with features
+    -   This points to weak user experience or unclear value proposition
+-   **Content performance**
+    -   /en-us landing page drives nearly all traffic This shows:
+        -   It is the primary entry point
+        -   It carries the full burden of engagement and conversion Other pages (e.g., /zh-cn, /about-us) have minimal traffic This suggests: Users are not exploring the site further Internal links or content flow may be weak → The site lacks a strong content journey or funnel
 
 ### KPI Logic & Controls
 
@@ -481,14 +467,160 @@ The three stakeholder questions roll up into a unified KPI hierarchy organized a
 
 # 3.Advanced Analysis
 
-# 4.Recommendations
+# 4.Recommendations &  Limitations 
 
-# 5.Limitations
+# 5.Reproducible Code
 
-# 6.Reproducible Code
+## R Code Example Using Sino Yoga Journey Data
+
+```{r}
+library(tidyverse)
+library(ChannelAttribution)
+library(gt)
+library(ggplot2)
+library(scales)
+
+# Example Sino Yoga attribution data
+sino_paths <- tibble(
+  user_id = c("U001", "U002", "U003", "U004", "U005", "U006", "U007", "U008"),
+  path = c(
+    "YouTube > Website > Direct",
+    "Google Search > Website",
+    "Facebook > YouTube > Website",
+    "YouTube > Google Search > Website",
+    "Direct > Website",
+    "WeChat > YouTube > Website",
+    "YouTube > Website",
+    "Google Search > YouTube > Website > Direct"
+  ),
+  conversion = c(1, 0, 1, 1, 0, 1, 1, 1)
+)
+
+# Prepare data for ChannelAttribution package
+channel_stack <- sino_paths |>
+  group_by(path) |>
+  summarise(
+    conversion = sum(conversion),
+    non_conversion = n() - sum(conversion),
+    .groups = "drop"
+  )
+
+channel_stack
+```
+
+## First Touch Attribution 
+
+```{r}
+first_touch <- sino_paths |>
+  filter(conversion == 1) |>
+  mutate(first_channel = str_trim(str_split_fixed(path, ">", 10)[,1])) |>
+  count(first_channel, name = "conversions") |>
+  mutate(
+    attribution_model = "First Touch",
+    credit_share = conversions / sum(conversions)
+  )
+
+first_touch |>
+  gt() |>
+  fmt_percent(columns = credit_share, decimals = 1) |>
+  tab_header(
+    title = "First-Touch Attribution",
+    subtitle = "Which channels introduce converting users?"
+  )
+```
+
+## Last- Touch Attribution
+
+```{r}
+last_touch <- sino_paths |>
+  filter(conversion == 1) |>
+  mutate(
+    channels = str_split(path, ">"),
+    last_channel = map_chr(channels, ~ str_trim(.x[length(.x)]))
+  ) |>
+  count(last_channel, name = "conversions") |>
+  mutate(
+    attribution_model = "Last Touch",
+    credit_share = conversions / sum(conversions)
+  )
+
+last_touch |>
+  gt() |>
+  fmt_percent(columns = credit_share, decimals = 1) |>
+  tab_header(
+    title = "Last-Touch Attribution",
+    subtitle = "Which channels close conversions?"
+  )
+```
+
+## Linear Attribution 
+
+```{r}
+linear_attr <- sino_paths |>
+  filter(conversion == 1) |>
+  mutate(channels = str_split(path, ">")) |>
+  mutate(
+    credit_table = map(channels, function(x) {
+      x <- str_trim(x)
+      tibble(
+        channel = x,
+        credit = 1 / length(x)
+      )
+    })
+  ) |>
+  select(credit_table) |>
+  unnest(credit_table) |>
+  group_by(channel) |>
+  summarise(linear_credit = sum(credit), .groups = "drop") |>
+  mutate(credit_share = linear_credit / sum(linear_credit))
+
+linear_attr |>
+  gt() |>
+  fmt_number(columns = linear_credit, decimals = 2) |>
+  fmt_percent(columns = credit_share, decimals = 1) |>
+  tab_header(
+    title = "Linear Attribution",
+    subtitle = "Credit shared across the full journey"
+  )
+```
+
+## Markov Chain Attribution 
+
+```{r}
+#| message: false
+#| warning: false
+#| flg_pro: false
+#| paged-print: false
+markov_model_result <- markov_model(
+  Data = channel_stack,
+  var_path = "path",
+  var_conv = "conversion",
+  var_null = "non_conversion",
+  out_more = TRUE
+)
+
+markov_results <- markov_model_result$result |>
+  as_tibble() |>
+  mutate(
+    credit_share = total_conversions / sum(total_conversions)
+  )
+
+markov_results |>
+  gt() |>
+  fmt_number(columns = total_conversions, decimals = 2) |>
+  fmt_percent(columns = credit_share, decimals = 1) |>
+  tab_header(
+    title = "Markov Chain Attribution",
+    subtitle = "Channel contribution based on removal effect"
+  )
+```
+
+## Interpretation 
+
+This attribution analysis in theory will helps Sino Yoga understand which channels support the full customer journey. YouTube may not always be the final conversion channel, but it likely plays a major role in awareness, education, and trust-building. The website may close the conversion, while Google Search or Direct traffic may reflect users returning after earlier exposure. Therefore, Sino Yoga should not judge performance only by last-touch conversions. Instead, it should use multi-touch attribution to understand how YouTube, search, website, and social platforms work together to move users toward membership.
 
 # Appendix
 
-#url to gitpages
+Link to gitpages:
 
-#and github repo
+Link to github repo:
