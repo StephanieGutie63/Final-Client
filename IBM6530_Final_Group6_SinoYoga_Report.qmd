@@ -48,7 +48,7 @@ Sino Yoga's primary growth objectives shape the analytical scope of this engagem
 
 ### Data Source
 
-#Big query old data manual import
+Big Query data used linked from Google Analytics of the Sino Yoga Website. Also exported old GA4 data before linked to Big Query could occur since Big Query only shows events from when it was linked to GA4 only limited data available.
 
 #### Data Mart
 
@@ -252,54 +252,51 @@ The Studio dashboard provides a snapshot of Sino Yoga's website performance and 
 
 ##### Overall performance
 
-- **148 active users**  
-Reflects a small but growing audience, meaning awareness efforts (e.g., YouTube, social, or direct sharing) are starting to bring people to the site.
+-   **148 active users**\
+    Reflects a small but growing audience, meaning awareness efforts (e.g., YouTube, social, or direct sharing) are starting to bring people to the site.
 
-- **Average session duration: 20 seconds**  
-This is extremely low and suggests that users are not finding what they expect or are not motivated to stay. It may indicate unclear messaging, slow loading, or weak content relevance.
+-   **Average session duration: 20 seconds**\
+    This is extremely low and suggests that users are not finding what they expect or are not motivated to stay. It may indicate unclear messaging, slow loading, or weak content relevance.
 
-- **Bounce rate: 89%**  
-A very high bounce rate means most users leave after viewing only one page. This signals issues with:
-    - First impressions (design or clarity)
-    - Content relevance to user intent
-    - Lack of clear next steps
+-   **Bounce rate: 89%**\
+    A very high bounce rate means most users leave after viewing only one page. This signals issues with:
+
+    -   First impressions (design or clarity)
+    -   Content relevance to user intent
+    -   Lack of clear next steps
 
 ##### Traffic Sources
 
-- **Direct traffic dominates**  
-Most users are arriving directly, which often means:
-    - Traffic is coming from YouTube links, social media, or shared URLs
-    - There is low discoverability via search engines  
-    
-- **Very little Paid Search and Organic Search traffic**  
-This suggests:  
-    - SEO is not yet optimized
-    - Paid campaigns are either minimal or not performing strongly
-    - Site is not currently benefiting from scalable acquisition channels  
-    
-- **Direct traffic dominates**  
-Most users are arriving directly, which often means:
-    - Traffic is coming from YouTube links, social media, or shared URLs
-    - There is low discoverability via search engines
-    
-- **Very little Paid Search and Organic Search traffic**  
-This suggests:  
-    - SEO is not yet optimized
-    - Paid campaigns are either minimal or not performing strongly
-    - Site is not currently benefiting from scalable acquisition channels
+-   **Direct traffic dominates**\
+    Most users are arriving directly, which often means:
+    -   Traffic is coming from YouTube links, social media, or shared URLs
+    -   There is low discoverability via search engines
+-   **Very little Paid Search and Organic Search traffic**\
+    This suggests:
+    -   SEO is not yet optimized
+    -   Paid campaigns are either minimal or not performing strongly
+    -   Site is not currently benefiting from scalable acquisition channels
+-   **Direct traffic dominates**\
+    Most users are arriving directly, which often means:
+    -   Traffic is coming from YouTube links, social media, or shared URLs
+    -   There is low discoverability via search engines
+-   **Very little Paid Search and Organic Search traffic**\
+    This suggests:
+    -   SEO is not yet optimized
+    -   Paid campaigns are either minimal or not performing strongly
+    -   Site is not currently benefiting from scalable acquisition channels
 
-##### User Behavior  
+##### User Behavior
 
-- **Mostly new users**   
-    - People are visiting once but not coming back
-    - The site is not yet building retention or loyalty
-- **Primarily desktop users**  
-This suggests:  
-    - The main audience currently accesses content via desktop
-    - If mobile experience is weak, it could be limiting growth
-    
-- **Low engagement overall**    
-Users are:
+-   **Mostly new users**
+    -   People are visiting once but not coming back
+    -   The site is not yet building retention or loyalty
+-   **Primarily desktop users**\
+    This suggests:
+    -   The main audience currently accesses content via desktop
+    -   If mobile experience is weak, it could be limiting growth
+-   **Low engagement overall**\
+    Users are:
     -   Leaving quickly
     -   Not navigating to additional pages
     -   Not interacting with features
@@ -307,54 +304,53 @@ Users are:
 
 ##### Content performance
 
-- **/en-us landing page drives nearly all traffic**  
-This shows:
-    - It is the primary entry point
-    - It carries the full burden of engagement and conversion
--   **Other pages (e.g., /zh-cn, /about-us) have minimal traffic**  
-This suggests:
-    - Users are not exploring the site further
-    - Internal links or content flow may be weak
-    - The site lacks a strong content journey or funnel
+-   **/en-us landing page drives nearly all traffic**\
+    This shows:
+    -   It is the primary entry point
+    -   It carries the full burden of engagement and conversion
+-   **Other pages (e.g., /zh-cn, /about-us) have minimal traffic**\
+    This suggests:
+    -   Users are not exploring the site further
+    -   Internal links or content flow may be weak
+    -   The site lacks a strong content journey or funnel
 
 ##### User Behavior
 
-- **Mostly new users**  
-    - People are visiting once but not coming back
-    - The site is not yet building retention or loyalty
-    
-- **Primarily desktop users**   
-This suggests:  
-    - The main audience currently accesses content via desktop
-    - If mobile experience is weak, it could be limiting growth
-    
-- **Low engagement overall**   
-Users are:
-    - Leaving quickly
-    - Not navigating to additional pages
-    - Not interacting with features
-    - This points to weak user experience or unclear value proposition
+-   **Mostly new users**
+    -   People are visiting once but not coming back
+    -   The site is not yet building retention or loyalty
+-   **Primarily desktop users**\
+    This suggests:
+    -   The main audience currently accesses content via desktop
+    -   If mobile experience is weak, it could be limiting growth
+-   **Low engagement overall**\
+    Users are:
+    -   Leaving quickly
+    -   Not navigating to additional pages
+    -   Not interacting with features
+    -   This points to weak user experience or unclear value proposition
 
 ##### Content performance
-- **/en-us landing page drives nearly all traffic**   
-This shows: 
-  - It is the primary entry point 
-  - It carries the full burden of engagement and conversion 
-- **Other pages (e.g., /zh-cn, /about-us) have minimal traffic**  
-This suggests: 
-  - Users are not exploring the site further Internal links or content flow may be weak 
-  - The site lacks a strong content journey or funnel
+
+-   **/en-us landing page drives nearly all traffic**\
+    This shows:
+    -   It is the primary entry point
+    -   It carries the full burden of engagement and conversion
+-   **Other pages (e.g., /zh-cn, /about-us) have minimal traffic**\
+    This suggests:
+    -   Users are not exploring the site further Internal links or content flow may be weak
+    -   The site lacks a strong content journey or funnel
 
 ##### Geographic insights
 
-- **Traffic concentrated in a few regions (e.g., Singapore, U.S.)**  
-This indicates:
-    - Marketing efforts are reaching specific target markets
-    - However, reach is still limited and not diversified
-- **Uneven global distribution**  
-This suggests an opportunity to:
-    - Expand targeting
-    - Tailor content to different audiences
+-   **Traffic concentrated in a few regions (e.g., Singapore, U.S.)**\
+    This indicates:
+    -   Marketing efforts are reaching specific target markets
+    -   However, reach is still limited and not diversified
+-   **Uneven global distribution**\
+    This suggests an opportunity to:
+    -   Expand targeting
+    -   Tailor content to different audiences
 
 ### KPI Logic & Controls
 
@@ -528,6 +524,7 @@ kpi_table |>
 The three stakeholder questions roll up into a unified KPI hierarchy organized around the path from acquisition to paid membership growth:
 
 # 3.Advanced Analysis
+
 ## Attribution Modeling Approach
 
 To extend beyond descriptive dashboard insights, this analysis applies attribution modeling to evaluate how different marketing channels contribute to user engagement and conversion behavior.
@@ -540,58 +537,58 @@ Additionally, because true user-level multi-touch journey data is not fully avai
 
 Four attribution approaches are applied to understand channel contribution across the funnel:
 
-- **First-Touch Attribution**  
-  Assigns full credit to the first interaction channel, capturing awareness and discovery.
+-   **First-Touch Attribution**\
+    Assigns full credit to the first interaction channel, capturing awareness and discovery.
 
-- **Last-Touch Attribution**  
-  Assigns full credit to the final interaction channel, representing conversion or decision-stage behavior.
+-   **Last-Touch Attribution**\
+    Assigns full credit to the final interaction channel, representing conversion or decision-stage behavior.
 
-- **Linear Attribution**  
-  Distributes equal credit across all touchpoints, reflecting the full customer journey.
+-   **Linear Attribution**\
+    Distributes equal credit across all touchpoints, reflecting the full customer journey.
 
-- **Markov Chain Attribution**  
-  Uses probabilistic modeling to estimate the importance of each channel based on removal effects, identifying which channels are most critical to conversion paths.
+-   **Markov Chain Attribution**\
+    Uses probabilistic modeling to estimate the importance of each channel based on removal effects, identifying which channels are most critical to conversion paths.
 
 ## Key Insights from Attribution Analysis
 
 The attribution models provide a more complete view of how users interact with Sino Yoga across multiple touchpoints:
 
-- **YouTube plays a critical awareness role**  
-  First-touch attribution indicates that YouTube is a primary entry point for users, supporting initial discovery and brand exposure.
+-   **YouTube plays a critical awareness role**\
+    First-touch attribution indicates that YouTube is a primary entry point for users, supporting initial discovery and brand exposure.
 
-- **Direct traffic dominates final interactions**  
-  Last-touch attribution shows that many users return directly, suggesting that users revisit the site after initial exposure rather than converting immediately.
+-   **Direct traffic dominates final interactions**\
+    Last-touch attribution shows that many users return directly, suggesting that users revisit the site after initial exposure rather than converting immediately.
 
-- **Search and cross-channel interactions support mid-funnel behavior**  
-  Channels such as Google Search appear within multi-step journeys, indicating that users seek additional information before engaging further.
+-   **Search and cross-channel interactions support mid-funnel behavior**\
+    Channels such as Google Search appear within multi-step journeys, indicating that users seek additional information before engaging further.
 
-- **User journeys are multi-touch, not single-channel**  
-  Linear and Markov models demonstrate that engagement is driven by a combination of channels working together rather than a single source.
+-   **User journeys are multi-touch, not single-channel**\
+    Linear and Markov models demonstrate that engagement is driven by a combination of channels working together rather than a single source.
 
 ## Business Interpretation
 
 These findings indicate that Sino Yoga’s current marketing funnel is:
 
-- Strong in **awareness generation**
-- Weak in **structured conversion pathways**
+-   Strong in **awareness generation**
+-   Weak in **structured conversion pathways**
 
 Evaluating performance using only last-touch attribution would underestimate the value of YouTube and other top-of-funnel channels. A multi-touch perspective shows that different platforms contribute at different stages of the user journey.
 
 To improve performance, Sino Yoga should focus on:
 
-- Strengthening connections between YouTube and the website
-- Introducing clearer calls-to-action (CTAs)
-- Developing intermediate “bridge content” to guide users toward conversion
+-   Strengthening connections between YouTube and the website
+-   Introducing clearer calls-to-action (CTAs)
+-   Developing intermediate “bridge content” to guide users toward conversion
 
 ## Limitations
 
-- Engagement is used as a proxy for conversion due to lack of revenue tracking
-- Path data is simulated and does not represent real user-level journeys
-- Cross-platform tracking is limited (e.g., YouTube to website attribution)
+-   Engagement is used as a proxy for conversion due to lack of revenue tracking
+-   Path data is simulated and does not represent real user-level journeys
+-   Cross-platform tracking is limited (e.g., YouTube to website attribution)
 
 Despite these limitations, the analysis provides directional insights into how channels contribute to user engagement and highlights opportunities to improve the conversion funnel.
 
-# 4.Recommendations & Limitations    
+# 4.Recommendations & Limitations
 
 ## Recommendations
 
@@ -601,9 +598,9 @@ Despite these limitations, the analysis provides directional insights into how c
 
 **Recommendation:** Define and implement at least three conversion events in GA4 via Google Tag Manager:
 
-- Newsletter or email signup
-- "Start membership" or pricing page interaction
-- Video play or content engagement event
+-   Newsletter or email signup
+-   "Start membership" or pricing page interaction
+-   Video play or content engagement event
 
 ### Bounce Rate Reduction
 
@@ -611,32 +608,32 @@ Despite these limitations, the analysis provides directional insights into how c
 
 **Recommendation:** Conduct a landing page optimization initiative focused on:
 
-- Clearer above-the-fold messaging that communicates Sino Yoga's value within 3 seconds
-- Visible call-to-action buttons (subscribe, watch a featured video, view pricing)
-- Reduced page load time, particularly for mobile users
-- A clear next-step pathway from the homepage into deeper content
+-   Clearer above-the-fold messaging that communicates Sino Yoga's value within 3 seconds
+-   Visible call-to-action buttons (subscribe, watch a featured video, view pricing)
+-   Reduced page load time, particularly for mobile users
+-   A clear next-step pathway from the homepage into deeper content
 
 ### UTM Tracking Activation
 
-**Evidence:** Direct traffic dominates the channel mix (157 of 222 sessions). In digital marketing, "Direct" frequently masks untagged referrals from social media, email, and video platforms. The brand's existing YouTube presence (~2,300 subscribers) is not visibly contributing to website traffic, which is likely an attribution gap rather than a true absence of referrals.
+**Evidence:** Direct traffic dominates the channel mix (157 of 222 sessions). In digital marketing, "Direct" frequently masks untagged referrals from social media, email, and video platforms. The brand's existing YouTube presence (\~2,300 subscribers) is not visibly contributing to website traffic, which is likely an attribution gap rather than a true absence of referrals.
 
 **Recommendation:** Implement UTM tagging on every link the brand shares externally:
 
-- YouTube video descriptions and channel "About" link
-- WeChat posts and Facebook content
-- Email signature links and newsletter campaigns
-- Influencer or partner promotional links
+-   YouTube video descriptions and channel "About" link
+-   WeChat posts and Facebook content
+-   Email signature links and newsletter campaigns
+-   Influencer or partner promotional links
 
 ### Returning Visitor Pathways
 
-**Evidence:** The dashboard shows nearly all users are new (~150 new vs. ~5 returning). The site is acquiring traffic but not building an audience that comes back.
+**Evidence:** The dashboard shows nearly all users are new (\~150 new vs. \~5 returning). The site is acquiring traffic but not building an audience that comes back.
 
 **Recommendation:** Introduce retention mechanisms that give first-time visitors a reason to return:
 
-- Email capture with a content-driven incentive (free yoga series, beginner's guide)
-- A weekly content calendar with clear publishing days
-- Account creation that saves user preferences or progress
-- Retargeting through email or social channels
+-   Email capture with a content-driven incentive (free yoga series, beginner's guide)
+-   A weekly content calendar with clear publishing days
+-   Account creation that saves user preferences or progress
+-   Retargeting through email or social channels
 
 ### Multi-Page Content Journey
 
@@ -644,10 +641,10 @@ Despite these limitations, the analysis provides directional insights into how c
 
 **Recommendation:** Strengthen internal content flow:
 
-- Add prominent links from the homepage to key supporting pages (About, Classes, Pricing, Blog)
-- Embed featured YouTube videos directly on the website
-- Create themed landing pages for major content categories
-- Implement related-content suggestions at the bottom of each page
+-   Add prominent links from the homepage to key supporting pages (About, Classes, Pricing, Blog)
+-   Embed featured YouTube videos directly on the website
+-   Create themed landing pages for major content categories
+-   Implement related-content suggestions at the bottom of each page
 
 ### Audience Localization
 
@@ -655,34 +652,33 @@ Despite these limitations, the analysis provides directional insights into how c
 
 **Recommendation:** Align content investment with where the audience actually is:
 
-- Prioritize the `/en-us` page experience for the existing English-speaking Asian audience
-- Consider a Singapore-specific landing page or content series
-- Continue investing in U.S. growth while treating the existing Singapore audience as a near-term monetization opportunity
+-   Prioritize the `/en-us` page experience for the existing English-speaking Asian audience
+-   Consider a Singapore-specific landing page or content series
+-   Continue investing in U.S. growth while treating the existing Singapore audience as a near-term monetization opportunity
 
 ## Limitations
 
 ### Data Pipeline
 
-- **Limited reporting window.** The analysis covers approximately four weeks of data (April 7 – May 3, 2026). Patterns should be treated as a snapshot rather than established trends.
+-   **Limited reporting window.** The analysis covers approximately four weeks of data (April 7 – May 3, 2026). Patterns should be treated as a snapshot rather than established trends.
 
-- **GA4 daily export still maturing.** The BigQuery export was recently linked to GA4, and the daily `events_*` tables are still populating. Future analyses on a longer time series will provide more robust findings.
+-   **GA4 daily export still maturing.** The BigQuery export was recently linked to GA4, and the daily `events_*` tables are still populating. Future analyses on a longer time series will provide more robust findings.
 
-- **Mart-to-dashboard integration in progress.** Some descriptive insights in this report are sourced from GA4's reporting interface rather than directly from the BigQuery mart. The mart documented in Section 2 is ready to power future dashboard iterations.
+-   **Mart-to-dashboard integration in progress.** Some descriptive insights in this report are sourced from GA4's reporting interface rather than directly from the BigQuery mart. The mart documented in Section 2 is ready to power future dashboard iterations.
 
 ### Methodology
 
-- **Engagement as proxy for conversion.** Because no transactional or signup conversion events are currently tracked, attribution analysis uses engaged sessions as a proxy. This approximates user intent but does not measure actual business outcomes.
+-   **Engagement as proxy for conversion.** Because no transactional or signup conversion events are currently tracked, attribution analysis uses engaged sessions as a proxy. This approximates user intent but does not measure actual business outcomes.
 
-- **Single-touchpoint dominance.** The current data is dominated by single-channel user paths (mostly Direct), which limits the explanatory power of multi-touch attribution models.
+-   **Single-touchpoint dominance.** The current data is dominated by single-channel user paths (mostly Direct), which limits the explanatory power of multi-touch attribution models.
 
-- **Sample size.** The analysis is based on 148 active users across the reporting window. Findings should be interpreted as directional rather than statistically conclusive.
+-   **Sample size.** The analysis is based on 148 active users across the reporting window. Findings should be interpreted as directional rather than statistically conclusive.
 
 ### Scope
 
-- **Website-only analysis.** This report focuses on website behavior captured by GA4 and BigQuery. YouTube channel performance, social media engagement, and offline conversion data are out of scope.
+-   **Website-only analysis.** This report focuses on website behavior captured by GA4 and BigQuery. YouTube channel performance, social media engagement, and offline conversion data are out of scope.
 
-- **No revenue or transactional data.** Sino Yoga's website does not currently process transactions, so revenue attribution and customer lifetime value calculations are not possible at this time.
-# 5.Reproducible Code
+-   **No revenue or transactional data.** Sino Yoga's website does not currently process transactions, so revenue attribution and customer lifetime value calculations are not possible at this time. \# 5.Reproducible Code
 
 ## R Code Example Using Sino Yoga Journey Data
 
