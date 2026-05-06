@@ -15,7 +15,7 @@ format:
     theme: cosmo
     code-fold: true
     code-tools: true
-    embed-resources: true
+    embed-resources: false
 execute:
   warning: false
   message: false
@@ -40,7 +40,9 @@ Sino Yoga's primary growth objectives shape the analytical scope of this engagem
 
 ## Presentation Slides
 
-#embed revealjs or link
+```{=html}
+<iframe src="RevealSlides.html" width="100%" height="600px"></iframe>
+```
 
 # 2.Descriptive Insights
 

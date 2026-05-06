@@ -202,7 +202,7 @@ GROUP BY
 
 <https://datastudio.google.com/reporting/8fb540f7-c90c-42e4-b9d8-a06a8e872fc6/page/NDKxF/edit>
 
-![](images/clipboard-2749133414.png)
+![](images/Screenshot 2026-05-06 032537.png)
 
 ### Key Insights from Studio Dashboard
 
