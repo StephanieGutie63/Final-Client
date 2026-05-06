@@ -53,14 +53,14 @@ Sino Yoga's primary growth objectives shape the analytical scope of this engagem
 
 The analysis is structured around three primary stakeholder questions, each translated into measurable KPIs and supported by data from GA4 and BigQuery.
 
-### Q1: Can YouTube serve as a meaningful traffic source and funnel for brand expansion in the U.S. market?
+### Q1: Can YouTube serve a funnel and meaningful traffic source for brand expansion in the US market?
 
 | KPI | Definition |
 |---|---|
-| YouTube referral sessions | Number of website sessions originating from YouTube |
-| YouTube traffic share | YouTube's share of total website acquisition |
-| YouTube-assisted conversion rate | Conversions where YouTube appears in the path |
-| YouTube traffic engagement rate | Engagement quality of YouTube-sourced sessions |
+| Website Traffic Volume | YouTube referral sessions |
+| Conversion Rate | Number of website sessions originating from YouTube traffic |
+| Engagement Rate | Engagement |
+
 
 **Data sources:** YouTube Analytics (video views, link clicks), GA4 (traffic acquisition, engagement metrics, funnel and path explorations).
 
@@ -68,13 +68,13 @@ The analysis is structured around three primary stakeholder questions, each tran
 
 **Assumption:** YouTube functions as a top-of-funnel discovery channel, not as the last-click attribution source. Success is measured through actual conversions further down the funnel.
 
-### Q2: How can Sino Yoga build a cohesive yoga community that connects viewers across YouTube, the website, and social media platforms?
+### Q2: How can we build a cohesive yoga community that connects viewers across YouTube, our website, and social media platforms?
 
 | KPI | Definition |
 |---|---|
-| Engagement | User actions including comments, likes, and shares |
-| Cross-platform reach | Number of users engaging with the brand on multiple platforms |
-| Returning visitor rate | Frequency with which viewers return after first interaction |
+| Engagement (comments, likes, & shares) | action showing viewers interaction including comments, likes, and shares |
+| Cross Platform Reach | how many people engage with brand's other platforms |
+| Returning visitor rate | how often viewers come back after their first interaction |
 
 **Data sources:** GA4 UI, BigQuery export.
 
@@ -82,13 +82,13 @@ The analysis is structured around three primary stakeholder questions, each tran
 
 **Assumption:** Community is built through repeat visits and content interaction across platforms, supported by consistent themes and CTAs.
 
-### Q3: How can Sino Yoga deepen engagement with YouTube viewers and build enough trust for them to choose a paid membership?
+### Q3: How can we deepen engagement with our YouTube viewers and build enough value and trust for them to choose a paid membership?
 
 | KPI | Definition |
 |---|---|
-| YouTube viewer engagement rate | Extent to which the user is actively involved with the brand |
-| Lead-to-conversion rate | Leads that convert to paid members |
-| YouTube membership conversion rate | YouTube users who become paying members |
+| Engagement Rate | action showing viewers interaction |
+| Lead-to-conversion | leads that convert to paid members |
+| Membership Conversion Rate | YouTube users who became paying members |
 
 **Data sources:** GA4 UI, BigQuery.
 
