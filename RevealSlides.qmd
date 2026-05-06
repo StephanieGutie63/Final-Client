@@ -350,9 +350,8 @@ To improve performance, Sino Yoga should focus on:
 -   Introducing clearer calls-to-action (CTAs)
 -   Developing intermediate “bridge content” to guide users toward conversion
 
-## Limitations
+## Model Limitations
 
--   Engagement is used as a proxy for conversion due to lack of revenue tracking
 -   Path data is simulated and does not represent real user-level journeys
 -   Cross-platform tracking is limited (e.g., YouTube to website attribution)
 
