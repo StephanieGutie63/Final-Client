@@ -38,7 +38,9 @@ Sino Yoga is a cross-cultural yoga and wellness brand founded by Yang Qi, integr
 
 ## Business Objectives
 
+::: callout-note
 Sino Yoga's primary growth objectives shape the analytical scope of this engagement:
+:::
 
 -   Increase brand awareness across markets
 -   Build a cohesive multi-channel platform experience
@@ -49,13 +51,11 @@ Sino Yoga's primary growth objectives shape the analytical scope of this engagem
 
 # 2.Descriptive Insights
 
-## Deliverable 1
-
 ### Data Source
 
 Big Query data used linked from Google Analytics of the Sino Yoga Website. Also exported old GA4 data before linked to Big Query could occur since Big Query only shows events from when it was linked to GA4 only limited data available.
 
-### Data MartPurpose
+### Data Mart Purpose
 
 This analytics mart supports Sino Yoga’s digital marketing dashboard by standardizing website and campaign KPIs for reporting in Looker Studio. The mart is designed to reduce repeated GA4 event-level queries and create consistent KPI definitions across the team.
 
@@ -202,7 +202,7 @@ GROUP BY
 
 <https://datastudio.google.com/reporting/8fb540f7-c90c-42e4-b9d8-a06a8e872fc6/page/NDKxF/edit>
 
-![](images/Screenshot 2026-05-06 032537.png)
+![](images/clipboard-763240250.png)
 
 ### Key Insights from Studio Dashboard
 

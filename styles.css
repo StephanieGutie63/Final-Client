@@ -1,0 +1,295 @@
+/* styles.css for RevealSlides.qmd - Sino Yoga Proposal Presentation */
+
+/* -----------------------------
+   Sino Yoga visual system
+------------------------------ */
+:root {
+  --sy-ink: #26332d;
+  --sy-muted: #5f6f66;
+  --sy-soft: #f6f1ea;
+  --sy-card: #fffaf3;
+  --sy-sage: #8fae9b;
+  --sy-sage-dark: #4d765d;
+  --sy-clay: #c9825c;
+  --sy-gold: #d8b36a;
+  --sy-line: rgba(38, 51, 45, 0.16);
+  --sy-shadow: 0 18px 48px rgba(38, 51, 45, 0.12);
+
+  --r-background-color: var(--sy-soft);
+  --r-main-color: var(--sy-ink);
+  --r-heading-color: var(--sy-ink);
+  --r-link-color: var(--sy-sage-dark);
+  --r-link-color-hover: var(--sy-clay);
+  --r-selection-background-color: rgba(143, 174, 155, 0.35);
+
+  --r-main-font: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  --r-heading-font: Georgia, "Times New Roman", serif;
+  --r-heading-text-transform: none;
+  --r-heading-letter-spacing: -0.02em;
+}
+
+/* -----------------------------
+   Slide canvas and typography
+------------------------------ */
+.reveal {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(216, 179, 106, 0.18), transparent 28%),
+    radial-gradient(circle at 90% 0%, rgba(143, 174, 155, 0.22), transparent 30%),
+    linear-gradient(135deg, #fbf7f0 0%, #f1eadf 100%);
+  color: var(--sy-ink);
+}
+
+.reveal .slides section {
+  text-align: left;
+  padding: 46px 62px;
+  box-sizing: border-box;
+}
+
+.reveal .slides section.center,
+.reveal .slides section.title-slide,
+.reveal #title-slide {
+  text-align: center;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 0.45em;
+}
+
+.reveal h1 {
+  font-size: 2.25em;
+}
+
+.reveal h2 {
+  font-size: 1.45em;
+  color: var(--sy-sage-dark);
+  border-bottom: 3px solid rgba(143, 174, 155, 0.35);
+  padding-bottom: 0.25em;
+}
+
+.reveal h3 {
+  font-size: 1.05em;
+  color: var(--sy-clay);
+}
+
+.reveal p,
+.reveal li,
+.reveal td,
+.reveal th {
+  font-size: 0.68em;
+  line-height: 1.35;
+}
+
+.reveal p {
+  margin: 0.35em 0 0.55em;
+}
+
+.reveal strong {
+  color: var(--sy-sage-dark);
+  font-weight: 800;
+}
+
+.reveal em {
+  color: var(--sy-clay);
+}
+
+/* -----------------------------
+   Title slide
+------------------------------ */
+#title-slide {
+  background:
+    linear-gradient(rgba(255, 250, 243, 0.86), rgba(255, 250, 243, 0.86)),
+    radial-gradient(circle at center, rgba(143, 174, 155, 0.25), transparent 48%);
+  border: 1px solid var(--sy-line);
+  border-radius: 28px;
+  box-shadow: var(--sy-shadow);
+  padding: 90px 70px !important;
+}
+
+#title-slide .title {
+  font-size: 2.65em;
+  color: var(--sy-ink);
+  margin-bottom: 0.18em;
+}
+
+#title-slide .subtitle {
+  font-size: 1.05em;
+  color: var(--sy-sage-dark);
+  font-weight: 700;
+  margin-bottom: 1.2em;
+}
+
+#title-slide .quarto-title-author-name,
+#title-slide .date,
+#title-slide .quarto-title-affiliation {
+  color: var(--sy-muted);
+  font-size: 0.58em;
+}
+
+/* -----------------------------
+   Section divider slides
+------------------------------ */
+.reveal .title-slide h1 {
+  display: inline-block;
+  padding: 0.55em 0.9em;
+  background: rgba(255, 250, 243, 0.82);
+  border: 1px solid var(--sy-line);
+  border-radius: 24px;
+  box-shadow: var(--sy-shadow);
+}
+
+/* -----------------------------
+   Lists and callouts
+------------------------------ */
+.reveal ul,
+.reveal ol {
+  margin-left: 1.05em;
+}
+
+.reveal li::marker {
+  color: var(--sy-clay);
+}
+
+.reveal blockquote {
+  background: rgba(255, 250, 243, 0.82);
+  border-left: 8px solid var(--sy-sage);
+  border-radius: 0 18px 18px 0;
+  padding: 0.75em 1em;
+  color: var(--sy-ink);
+  box-shadow: 0 10px 28px rgba(38, 51, 45, 0.08);
+}
+
+.reveal pre:not(.sourceCode),
+.reveal code:not(.sourceCode) {
+  background: rgba(143, 174, 155, 0.14);
+  color: var(--sy-ink);
+  border-radius: 8px;
+}
+
+/* -----------------------------
+   Code blocks
+------------------------------ */
+.reveal pre.sourceCode,
+.reveal div.sourceCode {
+  border-radius: 16px;
+  border: 1px solid rgba(38, 51, 45, 0.14);
+  box-shadow: 0 12px 30px rgba(38, 51, 45, 0.10);
+  background: #fffaf3;
+  max-height: 560px;
+}
+
+.reveal pre code {
+  font-size: 0.46em;
+  line-height: 1.35;
+  padding: 1em;
+  white-space: pre-wrap;
+}
+
+/* -----------------------------
+   Tables
+------------------------------ */
+.reveal table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 250, 243, 0.92);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 36px rgba(38, 51, 45, 0.10);
+}
+
+.reveal table th {
+  background: var(--sy-sage-dark);
+  color: #fffaf3;
+  font-weight: 800;
+}
+
+.reveal table th,
+.reveal table td {
+  border: 1px solid rgba(38, 51, 45, 0.12);
+  padding: 0.55em 0.65em;
+  vertical-align: top;
+}
+
+.reveal table tr:nth-child(even) td {
+  background: rgba(143, 174, 155, 0.08);
+}
+
+/* -----------------------------
+   Images and dashboard screenshots
+------------------------------ */
+.reveal img {
+  border-radius: 18px;
+  box-shadow: 0 14px 36px rgba(38, 51, 45, 0.16);
+  border: 1px solid rgba(38, 51, 45, 0.12);
+  max-height: 560px;
+  object-fit: contain;
+}
+
+/* -----------------------------
+   Footer, slide numbers, progress
+------------------------------ */
+.reveal .footer,
+.reveal .slide-footer {
+  color: var(--sy-muted);
+  font-size: 0.42em;
+}
+
+.reveal .slide-number {
+  background: rgba(77, 118, 93, 0.88);
+  color: #fffaf3;
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+
+.reveal .progress {
+  color: var(--sy-clay);
+}
+
+/* -----------------------------
+   Utility classes you can use in QMD
+------------------------------ */
+.callout-box {
+  background: rgba(255, 250, 243, 0.9);
+  border: 1px solid var(--sy-line);
+  border-left: 8px solid var(--sy-clay);
+  border-radius: 18px;
+  padding: 0.75em 0.9em;
+  box-shadow: 0 12px 30px rgba(38, 51, 45, 0.08);
+}
+
+.kpi-card {
+  background: rgba(255, 250, 243, 0.92);
+  border: 1px solid var(--sy-line);
+  border-radius: 20px;
+  padding: 0.75em;
+  box-shadow: 0 12px 30px rgba(38, 51, 45, 0.08);
+}
+
+.muted {
+  color: var(--sy-muted);
+}
+
+.highlight {
+  color: var(--sy-clay);
+  font-weight: 800;
+}
+
+/* -----------------------------
+   Print/export polish
+------------------------------ */
+@media print {
+  .reveal {
+    background: #fbf7f0 !important;
+  }
+
+  .reveal img,
+  .reveal table,
+  .reveal pre.sourceCode,
+  .reveal div.sourceCode {
+    box-shadow: none !important;
+  }
+}
